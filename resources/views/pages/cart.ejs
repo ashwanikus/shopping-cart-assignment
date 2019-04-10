@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+    <link rel="stylesheet" href="/resources/css/cart.css" />
+  </head>
+  <body class="container">
+    <header>
+      <% include ../partials/header %>
+    </header>
+
+    <main class="cart">
+      <div class="cart-header">
+        <div class="cart-header__text">My Cart (<%= cart.count %> item)</div>
+      </div>
+
+      <% for(var i=0; i < cart.items.length; i++) { %>
+      <div class="cart-item" data-id="<%= cart.items[i].product.id %>">
+        <img
+          src="<%= cart.items[i].product.imageURL %>"
+          alt="<%= cart.items[i].product.name %> logo"
+          class="cart-item__logo"
+        />
+        <div class="cart-item-detail">
+          <h1 class="cart-item-detail__heading"><%= cart.items[i].product.name %></h1>
+          <div class="cart-item-detail__info">
+            <div class="cart-item-detail__info--count">
+              <a class="cart-item-detail__info--remove" data-id="<%= cart.items[i].product.id %>">&#45;</a>
+              <span class="cart-item-detail__info--item-count" data-id="<%= cart.items[i].product.id %>"
+                ><%= cart.items[i].count %></span
+              >
+              <a class="cart-item-detail__info--add" data-id="<%= cart.items[i].product.id %>">&#43;</a>
+              * Rs.<%= cart.items[i].product.price %>
+            </div>
+            <span class="cart-item-detail__info--total" data-id="<%= cart.items[i].product.id %>">
+              Rs.<%= (cart.items[i].product.price * cart.items[i].count) %>
+            </span>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </main>
+
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+    <script src="/resources/js/cart.js" type="text/javascript"></script>
+  </body>
+</html>

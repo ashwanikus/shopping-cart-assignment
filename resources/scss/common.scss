@@ -52,7 +52,8 @@ $input-theme-color-primary: #93d4d2;
 
 @mixin app-header-padding-changes {
   @include break-point(desktop) {
-    padding: 0 $app-padding-horizontal;
+    padding-left: $app-padding-horizontal;
+    padding-right: $app-padding-horizontal;
   }
 }
 
@@ -92,6 +93,7 @@ $input-theme-color-primary: #93d4d2;
 a {
   color: $text-color-primary;
   text-decoration: none;
+  user-select: none;
 }
 
 html,
@@ -140,7 +142,7 @@ body {
         display: flex;
       }
       a {
-        color: $text-color-secondary;
+        color: #736a6d;
       }
     }
   }
@@ -276,10 +278,11 @@ main {
 }
 
 footer {
-  padding: 10px 0;
   text-align: center;
   background-color: #eaeaea;
   @include app-header-padding-changes;
+  padding-top: 10px;
+  padding-bottom: 10px;
   @include break-point(desktop) {
     text-align: left;
   }

@@ -9,5 +9,6 @@ module.exports = {
   submitLabel: 'Signup',
   primaryHeading: 'Signup',
   primarySubHeading: 'We do not share you personal detail with anyone.',
-  submitLink: '/SignIn'
+  submitLink: '/SignIn',
+  cart: undefined
 };

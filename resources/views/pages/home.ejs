@@ -11,10 +11,27 @@
 
     <main class="home">
       <div class="offer-banner">
-        <img src="/resources/img/offers/offer5.jpg" alt="offer1 logo" class="offer-banner__img" />
+        <% for(var i=0; i < offers.length; i++) { %>
+        <div class="mySlides fade">
+          <img
+            src="<%= offers[i].bannerImageUrl %>"
+            alt="<%= categories[i].bannerImageAlt %>"
+            class="offer-banner__img"
+          />
+        </div>
+        <% } %>
+
+        <a class="prev">PREV</a>
+        <a class="next">NEXT</a>
+        <div class="dot-container">
+          <% for(var i=0; i < offers.length; i++) { %>
+          <span class="dot"></span>
+          <% } %>
+        </div>
       </div>
+
       <% for(var i=0; i < categories.length; i++) { %>
-      <div class="<%= i % 2 === 0 ? 'flex-row' : 'flex-row-reverse' %> category">
+      <div class="category">
         <img src="<%= categories[i].imageUrl %>" alt="<%= categories[i].name %> logo" class="category-logo" />
         <div class="flex-column category-detail">
           <h1 class="category-detail__main"><%= categories[i].name %></h1>
@@ -28,5 +45,6 @@
     <footer>
       <% include ../partials/footer %>
     </footer>
+    <script src="/resources/js/home.js" type="text/javascript"></script>
   </body>
 </html>

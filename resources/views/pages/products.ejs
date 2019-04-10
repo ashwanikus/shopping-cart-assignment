@@ -43,7 +43,7 @@
             </div>
             <div class="flex-row product-card__buy">
               <div class="flex-row product-card__buy--price">MRP Rs.<%= products[i].price %></div>
-              <a href="" class="flex-row btn product-card__buy--btn">
+              <a class="flex-row btn product-card__buy--btn" id="<%= products[i].id %>">
                 Buy Now <span class="product-card__buy--sm-txt">@Rs.<%= products[i].price %></span>
               </a>
             </div>
@@ -56,5 +56,6 @@
     <footer>
       <% include ../partials/footer %>
     </footer>
+    <script src="/resources/js/products.js" type="text/javascript"></script>
   </body>
 </html>

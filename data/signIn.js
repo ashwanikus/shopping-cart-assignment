@@ -3,5 +3,6 @@ module.exports = {
   submitLabel: 'Login',
   primaryHeading: 'Login',
   primarySubHeading: 'Get access to your Orders, Wishlist and Recommendations',
-  submitLink: '/home'
+  submitLink: '/home',
+  cart: undefined
 };

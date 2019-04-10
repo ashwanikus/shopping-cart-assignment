@@ -1,0 +1,64 @@
+@import './common.scss';
+
+main.cart {
+  @extend .flex-column;
+  background: #eeeeee;
+
+  .cart-header {
+    @extend .flex-column;
+    background: black;
+    padding: 10px;
+    &__text {
+      color: white;
+    }
+  }
+}
+
+.cart-item {
+  @extend .flex-row;
+  margin-top: 10px;
+  background: $background-color-primary;
+  &__logo {
+    width: 20%;
+    height: 20%;
+  }
+}
+
+.cart-item-detail {
+  @extend .flex-column;
+  &__heading {
+    font-size: 1.5rem;
+    padding: 15px;
+  }
+  &__info {
+    @extend .flex-row;
+    font-size: 1rem;
+    align-items: center;
+    &--count {
+      @extend .flex-row;
+    }
+    &--remove,
+    &--add {
+      margin-right: 25px;
+      margin-left: 25px;
+      height: 25px;
+      width: 25px;
+      background: $background-color-secondary;
+      text-align: center;
+      color: $text-color-secondary;
+      border-radius: 100%;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: bold;
+      text-decoration: none;
+      font-family: sans-serif;
+    }
+
+    &--total {
+      margin-right: 50px;
+    }
+  }
+}
