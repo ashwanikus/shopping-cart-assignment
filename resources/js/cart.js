@@ -10,16 +10,14 @@ function postCartData(type, data) {
 }
 
 const cartController = (function() {
-  return {
+  return  {
     updateItemCount: function(itemId, count, price, totalCount) {
       count = count || 0;
+      let elem = document.querySelectorAll('div[class="cart-item"][data-id="' + itemId + '"]')[0];
       if (count > 0) {
-        document.querySelectorAll('span[data-id="' + itemId + '"]')[0].innerHTML = count;
-        document.querySelectorAll(
-          'span[class="cart-item-detail__info--total"][data-id="' + itemId + '"]'
-        )[0].innerHTML = 'Rs.' + price * count;
+        elem.getElementsByClassName('cart-item-detail__info--item-count')[0].innerHTML = count;
+        elem.getElementsByClassName('cart-item-detail__info--total')[0].innerHTML = 'Rs.' + price * count;
       } else {
-        let elem = document.querySelectorAll('div[class="cart-item"][data-id="' + itemId + '"]')[0];
         elem.parentNode.removeChild(elem);
       }
       document.getElementsByClassName('cart-header__text')[0].innerHTML = 'My Cart (' + totalCount + ' items)';
