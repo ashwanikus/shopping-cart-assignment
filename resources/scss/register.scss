@@ -1,14 +1,17 @@
 @import './common.scss';
 
 main.form-container {
-  @include flex-row;
+  @extend .flex-row;
+  padding-left: 9vw;
+  padding-right: 9vw;
+
   .heading {
-    @include flex-column;
+    @extend .flex-column;
     margin-top: 6%;
   }
 
   .form {
-    @include flex-column;
+    @extend .flex-column;
     padding: 10px 0;
     .form__input-container {
       overflow: hidden;

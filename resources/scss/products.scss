@@ -54,15 +54,7 @@
     height: 4rem;
   }
   &__detail {
-    @include flex-row;
-    @include break-point(desktop) {
-      @include flex-column;
-      &--img {
-        width: 100%;
-        height: auto;
-      }
-    }
-
+    @extend .flex-row;
     &--img {
       width: 50%;
       height: 5.5rem;
@@ -75,13 +67,23 @@
       height: 5.5rem;
       overflow: hidden;
     }
+
+    @include break-point(desktop) {
+      @include flex-column;
+      &--img {
+        width: 100%;
+        height: auto;
+      }
+    }
   }
 
   &__buy {
+    @extend .flex-row;
     height: 40px;
     margin-top: 20px;
 
     &--price {
+      @extend .flex-row;
       align-items: center;
       display: none;
       @include break-point(desktop) {
@@ -89,10 +91,12 @@
       }
     }
     &--btn {
+      @extend .flex-row;
       justify-content: center;
     }
     &--sm-txt {
       color: $text-color-secondary;
+      pointer-events: none;
       @include break-point(desktop) {
         display: none;
       }
@@ -125,6 +129,9 @@
     appearance: none;
     @include break-point(tablet) {
       display: none;
+    }
+    option {
+      color: #fff;
     }
   }
 }

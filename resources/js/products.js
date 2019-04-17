@@ -2,6 +2,7 @@
   [].forEach.call(buyItem, element => {
     element.addEventListener('click', event => {
       event.preventDefault();
+      event.stopPropagation();
       fetch('/cart/add', {
         method: 'POST',
         headers: {

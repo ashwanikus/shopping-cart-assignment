@@ -46,6 +46,7 @@
 main.home {
   .offer-banner {
     @extend .border-bottom-radial;
+
     .prev,
     .next {
       cursor: pointer;
@@ -77,6 +78,7 @@ main.home {
       display: flex;
       flex: 1;
       width: 100%;
+      min-height: 18vh;
     }
   }
   .dot-container {

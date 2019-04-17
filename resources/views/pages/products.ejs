@@ -41,9 +41,9 @@
               />
               <p class="product-card__detail--description"><%= products[i].description %></p>
             </div>
-            <div class="flex-row product-card__buy">
-              <div class="flex-row product-card__buy--price">MRP Rs.<%= products[i].price %></div>
-              <a class="flex-row btn product-card__buy--btn" id="<%= products[i].id %>">
+            <div class="product-card__buy">
+              <div class="product-card__buy--price">MRP Rs.<%= products[i].price %></div>
+              <a class="btn product-card__buy--btn" id="<%= products[i].id %>">
                 Buy Now <span class="product-card__buy--sm-txt">@Rs.<%= products[i].price %></span>
               </a>
             </div>

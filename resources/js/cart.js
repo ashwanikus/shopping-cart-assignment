@@ -10,7 +10,7 @@ function postCartData(type, data) {
 }
 
 const cartController = (function() {
-  return  {
+  return {
     updateItemCount: function(itemId, count, price, totalCount) {
       count = count || 0;
       let elem = document.querySelectorAll('div[class="cart-item"][data-id="' + itemId + '"]')[0];
@@ -30,6 +30,7 @@ const cartController = (function() {
     [].forEach.call(elemsOperation.elems, element => {
       element.addEventListener('click', event => {
         event.preventDefault();
+        event.stopPropagation();
         let productId = event.target.getAttribute('data-id');
         postCartData(elemsOperation.type, { productId: productId }).then(function(cart) {
           cartCountElem.innerHTML = cart.count + ' items';
