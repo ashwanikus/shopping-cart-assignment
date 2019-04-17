@@ -48,6 +48,6 @@ const cartController = (function() {
 })(
   document.getElementsByClassName('cart-item-detail__info--remove'),
   document.getElementsByClassName('cart-item-detail__info--add'),
-  document.getElementsByClassName('nav__end-cart--count')[0],
+  document.getElementsByClassName('nav__end-cart-count')[0],
   cartController
 );
