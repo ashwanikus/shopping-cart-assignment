@@ -15,8 +15,8 @@ const cartController = (function() {
       count = count || 0;
       let elem = document.querySelectorAll('div[class="cart-item"][data-id="' + itemId + '"]')[0];
       if (count > 0) {
-        elem.getElementsByClassName('cart-item-detail__info--item-count')[0].innerHTML = count;
-        elem.getElementsByClassName('cart-item-detail__info--total')[0].innerHTML = 'Rs.' + price * count;
+        elem.getElementsByClassName('cart-item-detail__info-item-count')[0].innerHTML = count;
+        elem.getElementsByClassName('cart-item-detail__info-total')[0].innerHTML = 'Rs.' + price * count;
       } else {
         elem.parentNode.removeChild(elem);
       }
@@ -46,8 +46,8 @@ const cartController = (function() {
     });
   });
 })(
-  document.getElementsByClassName('cart-item-detail__info--remove'),
-  document.getElementsByClassName('cart-item-detail__info--add'),
+  document.getElementsByClassName('cart-item-detail__info-remove'),
+  document.getElementsByClassName('cart-item-detail__info-add'),
   document.getElementsByClassName('nav__end-cart-count')[0],
   cartController
 );
