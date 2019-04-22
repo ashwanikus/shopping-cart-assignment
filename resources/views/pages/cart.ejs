@@ -24,15 +24,15 @@
         <div class="cart-item-detail">
           <h1 class="cart-item-detail__heading"><%= cart.items[i].product.name %></h1>
           <div class="cart-item-detail__info">
-            <div class="cart-item-detail__info--count">
-              <a class="cart-item-detail__info--remove" data-id="<%= cart.items[i].product.id %>">&#45;</a>
-              <span class="cart-item-detail__info--item-count" data-id="<%= cart.items[i].product.id %>"
+            <div class="cart-item-detail__info-count">
+              <a class="cart-item-detail__info-remove" data-id="<%= cart.items[i].product.id %>">&#45;</a>
+              <span class="cart-item-detail__info-item-count" data-id="<%= cart.items[i].product.id %>"
                 ><%= cart.items[i].count %></span
               >
-              <a class="cart-item-detail__info--add" data-id="<%= cart.items[i].product.id %>">&#43;</a>
+              <a class="cart-item-detail__info-add" data-id="<%= cart.items[i].product.id %>">&#43;</a>
               * Rs.<%= cart.items[i].product.price %>
             </div>
-            <span class="cart-item-detail__info--total" data-id="<%= cart.items[i].product.id %>">
+            <span class="cart-item-detail__info-total" data-id="<%= cart.items[i].product.id %>">
               Rs.<%= (cart.items[i].product.price * cart.items[i].count) %>
             </span>
           </div>

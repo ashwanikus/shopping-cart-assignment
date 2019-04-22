@@ -34,11 +34,11 @@ main.cart {
     @extend .flex-row;
     font-size: 1rem;
     align-items: center;
-    &--count {
+    &-count {
       @extend .flex-row;
     }
-    &--remove,
-    &--add {
+    &-remove,
+    &-add {
       margin-right: 25px;
       margin-left: 25px;
       height: 25px;
@@ -57,7 +57,7 @@ main.cart {
       font-family: sans-serif;
     }
 
-    &--total {
+    &-total {
       margin-right: 50px;
     }
   }
