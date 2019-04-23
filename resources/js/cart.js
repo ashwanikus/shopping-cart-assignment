@@ -11,7 +11,7 @@ function postCartData(type, data) {
 
 const cartController = (function() {
   function updateCartTotalCount(totalCount) {
-    document.getElementsByClassName('nav__end-cart-count')[0].innerHTML = totalCount;
+    document.getElementsByClassName('nav__end-cart-count')[0].innerHTML = totalCount + ' items';
     document.getElementsByClassName('nav__end-cart-count-xs')[0].innerHTML = totalCount;
   }
   function updateItemCount(itemId, count, price, totalCount) {
@@ -40,8 +40,6 @@ const cartController = (function() {
     if (matchInfo.match) {
       let productId = event.target.getAttribute('data-id');
       postCartData(matchInfo.type, { productId: productId }).then(function(cart) {
-        cartCountElem.innerHTML = cart.count + ' items';
-        cartCountXsElem.innerHTML = cart.count;
         let cartProductDetail = cart.items.find(function(item) {
           return item.product.id === productId;
         });
