@@ -13,7 +13,7 @@ main.form-container {
   .form {
     @extend .flex-column;
     padding: 10px 0;
-    .form__input-container {
+    &__input-container {
       overflow: hidden;
       position: relative;
       height: 72px;
@@ -77,6 +77,9 @@ main.form-container {
           transform: translateX(-100%);
         }
       }
+    }
+    &__submit {
+      @extend .btn;
     }
   }
 }

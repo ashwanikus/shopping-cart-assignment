@@ -2,7 +2,7 @@ module.exports = {
   inputs: [
     { label: 'Full Name', type: 'text' },
     { label: 'Last Name', type: 'text' },
-    { label: 'Email', type: 'text' },
+    { label: 'Email', type: 'email' },
     { label: 'Password', type: 'password' },
     { label: 'Confirm Password', type: 'password' }
   ],

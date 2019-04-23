@@ -22,6 +22,7 @@
 
 // product list
 .product-list {
+  @extend .flex-column;
   width: 75%;
   padding: 0;
   @include break-point(tablet) {
@@ -55,22 +56,35 @@
   }
   &__detail {
     @extend .flex-row;
-    &--img {
+    &-img {
       width: 50%;
-      height: 5.5rem;
+      height: 9rem;
+      @include break-point(tablet) {
+        height: 5.5rem;
+      }
     }
-
-    &--description {
+    &-text {
+      @extend .flex-column;
+    }
+    &-description {
       background-color: #f0f0f0;
       font-size: 0.8rem;
       padding: 5px;
       height: 5.5rem;
       overflow: hidden;
     }
+    &-btn {
+      @extend .btn;
+      @extend .flex-row;
+      @extend .flex-center;
+      @include break-point(tablet) {
+        display: none;
+      }
+    }
 
     @include break-point(desktop) {
       @include flex-column;
-      &--img {
+      &-img {
         width: 100%;
         height: auto;
       }
@@ -79,10 +93,14 @@
 
   &__buy {
     @extend .flex-row;
+    display: none;
     height: 40px;
     margin-top: 20px;
+    @include break-point(tablet) {
+      display: flex;
+    }
 
-    &--price {
+    &-price {
       @extend .flex-row;
       align-items: center;
       display: none;
@@ -90,11 +108,12 @@
         display: flex;
       }
     }
-    &--btn {
+    &-btn {
       @extend .flex-row;
-      justify-content: center;
+      @extend .btn;
+      @extend .flex-center;
     }
-    &--sm-txt {
+    &-sm-txt {
       color: $text-color-secondary;
       pointer-events: none;
       @include break-point(desktop) {

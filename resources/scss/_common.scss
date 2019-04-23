@@ -82,6 +82,11 @@
   @include flex-column-reverse;
 }
 
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
 *,
 *::after,
 *::before {
@@ -103,6 +108,10 @@ body {
   font-family: 'Dosis';
   font-weight: $app-font-weight;
   box-sizing: border-box;
+  font-size: 0.75rem;
+  @include break-point(tablet) {
+    font-size: 1rem;
+  }
 }
 
 .btn {
@@ -112,6 +121,7 @@ body {
   color: $text-color-secondary;
   font-family: 'Dosis';
   text-align: center;
+  font-size: 1rem;
 }
 
 .nav {
@@ -169,10 +179,12 @@ body {
     }
     &-cart {
       @extend .flex-row;
-      justify-content: center;
-      align-items: center;
+      @extend .flex-center;
       background-color: #eeeeee;
 
+      &-icon {
+        position: relative;
+      }
       &-logo {
         height: 0.36 * $header-height;
         fill: $background-color-secondary;
@@ -181,6 +193,23 @@ body {
         display: none;
         @include break-point(tablet) {
           display: block;
+        }
+        &-xs {
+          position: absolute;
+          top: -15%;
+          left: 50%;
+          transform: translate(-50%, 0);
+          background: #50dae3;
+          color: white;
+          height: 1.5rem;
+          width: 1.5rem;
+          text-align: center;
+          border-radius: 1rem;
+          @extend .flex-row;
+          @extend .flex-center;
+          @include break-point(tablet) {
+            display: none;
+          }
         }
       }
     }
@@ -263,7 +292,7 @@ body {
   transition: opacity 5s;
   text-align: center;
 
-  &--link {
+  &__link {
     transition: color 0.3s ease;
     &:hover {
       color: tomato;

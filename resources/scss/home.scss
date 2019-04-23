@@ -119,8 +119,7 @@ main.home {
       max-width: 50%;
     }
     .category-detail {
-      align-items: center;
-      justify-content: center;
+      @extend .flex-center;
       text-align: center;
       &__main {
         font-size: 1.8rem;

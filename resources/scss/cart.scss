@@ -21,11 +21,13 @@ main.cart {
   &__logo {
     width: 20%;
     height: 20%;
+    min-width: 14rem;
   }
 }
 
 .cart-item-detail {
   @extend .flex-column;
+
   &__heading {
     font-size: 1.5rem;
     padding: 15px;
@@ -33,14 +35,21 @@ main.cart {
   &__info {
     @extend .flex-row;
     font-size: 1rem;
-    align-items: center;
+    flex-direction: column;
+    @include break-point(tablet) {
+      flex-direction: row;
+      align-items: center;
+    }
+
     &-count {
       @extend .flex-row;
+      align-items: center;
     }
     &-remove,
     &-add {
-      margin-right: 25px;
-      margin-left: 25px;
+      @extend .flex-center;
+      margin-right: 12px;
+      margin-left: 12px;
       height: 25px;
       width: 25px;
       background: $background-color-secondary;
@@ -49,16 +58,24 @@ main.cart {
       border-radius: 100%;
       display: inline-flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
+
       font-size: 1rem;
       font-weight: bold;
       text-decoration: none;
       font-family: sans-serif;
+      @include break-point(tablet) {
+        margin-right: 25px;
+        margin-left: 25px;
+      }
     }
 
     &-total {
-      margin-right: 50px;
+      margin: 9px;
+      text-align: left;
+      @include break-point(tablet) {
+        margin: unset;
+        margin-right: 50px;
+      }
     }
   }
 }
