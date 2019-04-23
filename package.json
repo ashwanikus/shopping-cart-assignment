@@ -1,5 +1,5 @@
 {
-  "name": "code-exercise",
+  "name": "shopping-cart-app",
   "version": "1.0.0",
   "description": "This is a shopping cart coding exercise",
   "main": "server.js",
@@ -10,13 +10,15 @@
     "start": "npm run compile:sass && node server.js",
     "start:dev": "npm run compile:sass-dev > ./out.log | nodemon server.js"
   },
-  "author": "",
+  "author": "Mohit Jain",
   "license": "MIT",
   "dependencies": {
-    "ejs": "^2.6.1",
-    "express": "^4.16.4",
-    "express-ejs-layouts": "^2.5.0",
-    "node-sass": "^4.11.0",
-    "nodemon": "^1.18.10"
+    "ejs": "2.6.1",
+    "express": "4.16.4",
+    "express-ejs-layouts": "2.5.0",
+    "node-sass": "4.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "1.18.10"
   }
 }
