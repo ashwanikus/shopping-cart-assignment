@@ -12,7 +12,6 @@ let products = require("../../json/products/index.get.json");
 let addtocart = require("../../json/addToCart/index.post.json");
 let categories = require("../../json/categories/index.get.json");
 let banners = require("../../json/banners/index.get.json");
-let checkoutAmount = 0;
 let itemsInCart = [];
 
 // parse application/x-www-form-urlencoded
@@ -65,6 +64,8 @@ server.get('/products', function (req, res) {
 });
 
 server.get('/addTocart/:id', function (req, res) {
+    var items_total_price = 0;
+    var items_count = 0;
     products.forEach(element => {
         if (element.id === req.params.id) {
             if (element.count == undefined) {
@@ -75,13 +76,77 @@ server.get('/addTocart/:id', function (req, res) {
                 element.count = element.count + 1;
                 element.totalPrice = element.price * element.count;
             }
-            res.end(JSON.stringify({ item_in_cart: itemsInCart }));
+            itemsInCart.forEach(element => {
+                items_count = items_count + element.count;
+                items_total_price = items_total_price + element.totalPrice;
+            });
+            res.end(JSON.stringify({ item_in_cart: itemsInCart, items_count: items_count, items_total_price: items_total_price }));
         }
     });
 });
 
 server.get('/cartitems', function (req, res) {
-    res.end(JSON.stringify({ item_in_cart: itemsInCart }));
+    var items_total_price = 0;
+    var items_count = 0;
+    if (itemsInCart.length > 0) {
+        itemsInCart.forEach(element => {
+            items_count = items_count + element.count;
+            items_total_price = items_total_price + element.totalPrice;
+        });
+        res.end(JSON.stringify({ item_in_cart: itemsInCart, items_count: items_count, items_total_price: items_total_price }));
+    } else {
+        res.end(JSON.stringify({ item_in_cart: itemsInCart, items_count: 0, items_total_price: 0 }));
+    }
+});
+
+server.get('/itemcount', function (req, res) {
+    var items_count = 0;
+    var checkout = 0;
+    itemsInCart.forEach(element => {
+        items_count = items_count + element.count;
+        checkout = checkout + (element.price * element.count);
+        //console.log(element.count, " * ", element.price, " = ", element.price * element.count, " ********* ", checkout);
+    });
+    res.end(JSON.stringify({ items_count: items_count, checkout: checkout }));
+});
+
+server.get('/updateCart/:id/:task', function (req, res) {
+    var items_total_price = 0;
+    var items_count = 0;
+    products.forEach(element => {
+        if (element.id === req.params.id) {
+            if (req.params.task == "inc") {
+                if (element.count == undefined) {
+                    element.count = 1;
+                    element.totalPrice = element.price * element.count;
+                    itemsInCart.push(element);
+                } else {
+                    element.count = element.count + 1;
+                    element.totalPrice = element.price * element.count;
+                }
+                itemsInCart.forEach(element => {
+                    items_count = items_count + element.count;
+                    items_total_price = items_total_price + element.totalPrice;
+                });
+                res.end(JSON.stringify({ item_in_cart: itemsInCart, items_count: items_count, items_total_price: items_total_price }));
+
+            } else if (req.params.task == "dec") {
+                if (element.count == undefined) {
+                    element.count = 1;
+                    element.totalPrice = element.price * element.count;
+                    itemsInCart.push(element);
+                } else {
+                    element.count = element.count - 1;
+                    element.totalPrice = element.price * element.count;
+                }
+                itemsInCart.forEach(element => {
+                    items_count = items_count + element.count;
+                    items_total_price = items_total_price + element.totalPrice;
+                });
+                res.end(JSON.stringify({ item_in_cart: itemsInCart, items_count: items_count, items_total_price: items_total_price }));
+            }
+        }
+    });
 });
 
 server.listen(8080, () => {

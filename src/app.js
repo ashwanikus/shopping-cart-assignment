@@ -69,3 +69,7 @@ const footer = `<div class="row">
 
 document.getElementById("header").innerHTML = header;
 document.getElementById("footer").innerHTML = footer;
+
+function updateCartCount(data) {
+  document.getElementById('cart_count').innerHTML = data.items_count;
+}

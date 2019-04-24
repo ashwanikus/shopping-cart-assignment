@@ -108,14 +108,13 @@ function renderProducts(id) {
 // add to cart on product listing
 // --------------------------------------------- //
 function addToCart(id) {
-    console.log(id);
     var addToCartXHttp = new XMLHttpRequest();
     addToCartXHttp.open("GET", "addTocart/" + id, true);
     addToCartXHttp.onload = function () {
         if (addToCartXHttp.status >= 200 && addToCartXHttp.status < 400) {
             var data = JSON.parse(addToCartXHttp.responseText);
             console.log(data);
-            console.log(document.getElementById('cart_count').innerHTML);
+            document.getElementById('cart_count').innerHTML = data.items_count;
         } else {
             console.log("We conected to the server, but it returned an error.");
         }

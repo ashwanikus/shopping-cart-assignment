@@ -16,7 +16,7 @@
             <div class="onhover_Cart">
                 <div class="cart_Box">
                     <div>
-                        <h3>My Cart<span>(1 item)</span></h3>
+                        <h3>My Cart<span>(<span id="item_span">1</span> item)</span></h3>
                         <div class="cart_Items">
                             <ul id="displaying_cart_items"></ul>
                         </div>
@@ -34,7 +34,7 @@
                         <p>Promo code can be applied on
                             payment page</p>
                         <button class="btn--default full_width">Proceed
-                            to checkout <span>Rs. 187</span></button>
+                            to checkout <span>Rs. <i id="checkoutAmount"></i></span></button>
                     </div>
 
                 </div>
@@ -48,28 +48,29 @@
             <li>
                 <div class="items flex_box">
                     <div class="img_wrap">
-                        <img src="static/images/products/fruit-n-veg/apple.jpg" alt="">
+                        <img src="{{imageURL}}" alt="{{name}}">
                     </div>
                     <div class="detail_wrap">
-                        <h5>Fruits & Vegetable</h5>
+                        <h5>{{name}}</h5>
                         <div>
-                            <button class="btn--default">&minus;</button>
-                            <input type="text" value="0" class="prod_quantity">
-                            <button class="btn--default">&plus;</button>
-                            <span class="price">Rs.187</span>
-                            <span class="total_price">Rs.187</span>
+                            <button class="btn--default" onclick="changeQuantity('{{id}}', 'dec', '{{@index}}')">&minus;</button>
+                            <input type="text" value="{{count}}" id="item{{@index}}" class="prod_quantity">
+                            <button class="btn--default" onclick="changeQuantity('{{id}}', 'inc', '{{@index}}')">&plus;</button>
+                            <span class="price" id="price{{@index}}">Rs.{{price}}</span>
+                            <span class="total_price" id="total_price{{@index}}">Rs.{{multiply price count}}</span>
                         </div>
                     </div>
                 </div>
             </li>
             {{/each}}
-        {{/else}}
-            <li>No item in carts...</li>
+        {{else}}
+            <li><div class="items flex_box">No item in carts...</div></li>
         {{/if}}
     </script>
     <footer id="footer"></footer>
     <script src="vendor/handlebars-v4.1.1.js"></script>
     <script src="js/cart.js"></script>
+    <script src="js/common.js"></script>
 </body>
 
 </html>
