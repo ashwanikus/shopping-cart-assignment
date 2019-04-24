@@ -5,46 +5,44 @@
     <link rel="stylesheet" href="/resources/css/home.css" />
   </head>
   <body class="container">
-    <header>
-      <% include ../partials/header %>
-    </header>
+    <% include ../partials/header %>
 
     <main class="home">
-      <div class="offer-banner">
-        <% for(var i=0; i < offers.length; i++) { %>
-        <div class="mySlides fade">
-          <img
-            src="<%= offers[i].bannerImageUrl %>"
-            alt="<%= categories[i].bannerImageAlt %>"
-            class="offer-banner__img"
-          />
-        </div>
-        <% } %>
-
-        <a class="prev">PREV</a>
-        <a class="next">NEXT</a>
-        <div class="dot-container">
-          <% for(var i=0; i < offers.length; i++) { %>
-          <span class="dot"></span>
+      <div class="carousel">
+        <ul class="carousel__items">
+          <% for(let i=0; i < offers.length; i++) { %>
+          <li class="carousel__item">
+            <img
+              src="<%= offers[i].bannerImageUrl %>"
+              alt="<%= categories[i].bannerImageAlt %>"
+              class="carousel__image"
+            />
+          </li>
           <% } %>
-        </div>
+        </ul>
+        <div class="carousel__navigation carousel__navigation--prev">PREV</div>
+        <div class="carousel__navigation carousel__navigation--next">NEXT</div>
+        <ul class="carousel_pagination">
+          <% for(let i=0; i < offers.length; i++) { %>
+          <li class="carousel_pagination__dot"></li>
+          <% } %>
+        </ul>
       </div>
 
-      <% for(var i=0; i < categories.length; i++) { %>
+      <% for(let i=0; i < categories.length; i++) { %>
       <div class="category">
         <img src="<%= categories[i].imageUrl %>" alt="<%= categories[i].name %> logo" class="category-logo" />
         <div class="flex-column category-detail">
           <h1 class="category-detail__main"><%= categories[i].name %></h1>
-          <h3 class="category-detail__sub"><%= categories[i].description %></h3>
+          <h2 class="category-detail__sub"><%= categories[i].description %></h2>
           <a href="/products/<%= categories[i].key %>" class="btn">Explore <%= categories[i].key %></a>
         </div>
       </div>
       <% } %>
     </main>
 
-    <footer>
-      <% include ../partials/footer %>
-    </footer>
+    <% include ../partials/footer %>
+    <script src="/resources/js/carousel.js" type="text/javascript" defer></script>
     <script src="/resources/js/home.js" type="text/javascript" defer></script>
   </body>
 </html>

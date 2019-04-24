@@ -1,5 +1,11 @@
 @import './_common.scss';
 
+.product-list-page {
+  @extend .flex-column;
+  @include break-point(tablet) {
+    flex-direction: row;
+  }
+}
 // side category name list.
 .category-list {
   width: 25%;
@@ -22,17 +28,13 @@
 
 // product list
 .product-list {
-  @extend .flex-column;
-  width: 75%;
+  @extend .flex-row;
+  flex-wrap: wrap;
+  width: 100%;
   padding: 0;
   @include break-point(tablet) {
     padding: 5px;
-  }
-
-  .product-list-row {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
+    width: 75%;
   }
 }
 
@@ -43,6 +45,7 @@
   margin-top: 10px;
   border-bottom: 1px dashed #d0d0d0;
   box-shadow: 10px 0 5px -13px #888;
+
   @include break-point(tablet) {
     width: 50%;
   }
@@ -126,7 +129,9 @@
 // mobile category select dropdown
 .mob-category-list-container {
   position: relative;
-
+  @include break-point(tablet) {
+    display: none;
+  }
   &:after {
     position: absolute;
     content: '﹀';
@@ -146,9 +151,7 @@
     padding: 10px;
     -webkit-appearance: none;
     appearance: none;
-    @include break-point(tablet) {
-      display: none;
-    }
+
     option {
       color: #fff;
     }

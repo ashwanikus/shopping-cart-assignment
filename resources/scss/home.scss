@@ -25,9 +25,7 @@
     opacity: 1;
   }
 }
-.mySlides {
-  display: none;
-}
+
 // bottom radial shadow css
 .border-bottom-radial {
   position: relative;
@@ -44,11 +42,22 @@
 }
 
 main.home {
-  .offer-banner {
+  .carousel {
     @extend .border-bottom-radial;
-
-    .prev,
-    .next {
+    &__items {
+      @extend .flex-row;
+    }
+    &__item {
+      @extend .fade;
+      display: none;
+    }
+    &__image {
+      display: flex;
+      flex: 1;
+      width: 100%;
+      min-height: 18vh;
+    }
+    &__navigation {
       cursor: pointer;
       position: absolute;
       top: 50%;
@@ -66,22 +75,14 @@ main.home {
       &:hover {
         background-color: rgba(0, 0, 0, 0.8);
       }
-    }
-
-    /* Position the "next button" to the right */
-    .next {
-      right: 0;
-      border-radius: 3px 0 0 3px;
-    }
-
-    &__img {
-      display: flex;
-      flex: 1;
-      width: 100%;
-      min-height: 18vh;
+      &--next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
     }
   }
-  .dot-container {
+
+  .carousel_pagination {
     position: absolute;
     display: flex;
     flex: 1;
@@ -90,7 +91,7 @@ main.home {
     bottom: 24px;
     justify-content: center;
 
-    .dot {
+    &__dot {
       cursor: pointer;
       height: 15px;
       width: 15px;

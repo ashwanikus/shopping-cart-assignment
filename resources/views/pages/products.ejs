@@ -5,32 +5,28 @@
     <link rel="stylesheet" href="/resources/css/products.css" />
   </head>
   <body class="container">
-    <header>
-      <% include ../partials/header %>
-    </header>
-    <main class="flex-row">
+    <% include ../partials/header %>
+    <main class="product-list-page">
       <div class="category-list">
-        <% for(var i=0; i < categories.length; i++) { %>
+        <% for(let i=0; i < categories.length; i++) { %>
         <a href="/products/<%= categories[i].key %>"><h1 class="category-list__name"><%= categories[i].name %></h1></a>
         <% } %>
       </div>
+      <div class="mob-category-list-container">
+          <select class="mob-category-list">
+          <% for(let i=0; i < categories.length; i++) { %>
+              <% if (categoryId && categoryId===categories[i].id) { %>
+                  <option value="/products/<%= categories[i].key %>" selected>
+              <% } else { %>
+                  <option value="/products/<%= categories[i].key %>">
+              <% } %>
+              <%= categories[i].name %>
+          </option>
+          <% } %>
+          </select>
+      </div>
       <div class="product-list">
-        <div class="mob-category-list-container">
-        <select class="mob-category-list" onchange="window.location = this.value;">
-        <% for(var i=0; i < categories.length; i++) { %>
-            <% if (categoryId && categoryId===categories[i].id) { %>
-                <option value="/products/<%= categories[i].key %>" selected>
-            <% } else { %>
-                <option value="/products/<%= categories[i].key %>">
-            <% } %>
-            <%= categories[i].name %>
-        </option>
-        <% } %>
-        </select>
-        </div>
-        <% for(var i=0; i < products.length;i) { %>
-        <div class="product-list-row">
-          <% for(i && i++; i < products.length; i++) { %>
+        <% for(let i=0; i < products.length;i++) { %>
           <div class="product-card">
             <h1 class="product-card__name"><%= products[i].name %></h1>
             <div class="product-card__detail">
@@ -41,26 +37,24 @@
               />
               <div class="product-cart__detail-text">
                 <p class="product-card__detail-description"><%= products[i].description %></p>
-                <a class="product-buy-btn product-card__detail-btn" id="<%= products[i].id %>">
+                <a class="product-buy-btn product-card__detail-btn" data-id="<%= products[i].id %>">
                     Buy Now @Rs.<%= products[i].price %>
                 </a>
               </div>
             </div>
             <div class="product-card__buy">
               <div class="product-card__buy-price">MRP Rs.<%= products[i].price %></div>
-              <a class="product-buy-btn product-card__buy-btn" id="<%= products[i].id %>">
+              <a class="product-buy-btn product-card__buy-btn" data-id="<%= products[i].id %>">
                 Buy Now <span class="product-card__buy-sm-txt">@Rs.<%= products[i].price %></span>
               </a>
             </div>
           </div>
-          <% if ((i+1) % 4 === 0) { break; } } %>
-        </div>
         <% } %>
       </div>
     </main>
-    <footer>
-      <% include ../partials/footer %>
-    </footer>
+    <% include ../partials/footer %>
+    <script src="/resources/js/services.js" type="text/javascript" defer></script>
+    <script src="/resources/js/headerCartController.js" type="text/javascript" defer></script>
     <script src="/resources/js/products.js" type="text/javascript" defer></script>
   </body>
 </html>

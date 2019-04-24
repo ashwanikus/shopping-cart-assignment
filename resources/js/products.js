@@ -1,27 +1,22 @@
-(function(productList, isMatchProduct, cartCountElem, cartCountXsElem) {
+(function init(mobCategorySelector, productList, isMatchProduct, headerCartController) {
+  mobCategorySelector.addEventListener('change', function() {
+    window.location = this.value;
+  });
+
   productList.addEventListener('click', event => {
     event.stopPropagation();
     if (isMatchProduct(event.target)) {
-      fetch('/cart/add', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ productId: event.target.id })
-      })
-        .then(res => res.json())
-        .then(function(cart) {
-          cartCountElem.innerHTML = cart.count + ' items';
-          cartCountXsElem.innerHTML = cart.count;
-        });
+      let productId = event.target.dataset.id;
+      services.updateCartItem('add', { productId: productId }).then(function(cart) {
+        headerCartController.updateHeaderCartCount(cart.count);
+      });
     }
   });
 })(
+  document.getElementsByClassName('mob-category-list')[0],
   document.getElementsByClassName('product-list')[0],
   function(target) {
     return target.matches('.product-buy-btn');
   },
-  document.getElementsByClassName('nav__end-cart-count')[0],
-  document.getElementsByClassName('nav__end-cart-count-xs')[0]
+  headerCartController
 );
