@@ -1,0 +1,26 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  color: $text-color-primary;
+}
+
+a {
+  color: $text-color-primary;
+  text-decoration: none;
+  user-select: none;
+}
+
+html,
+body {
+  margin: 0 auto;
+  font-family: 'Dosis';
+  font-weight: $app-font-weight;
+  box-sizing: border-box;
+  font-size: 0.75rem;
+  @include break-point(tablet) {
+    font-size: 1rem;
+  }
+}

@@ -6,7 +6,7 @@
   </head>
   <body>
     <% include ../partials/header %>
-    <main class="form-container">
+    <main class="register">
       <div class="heading">
         <h1 class="heading__primary">
           <%= primaryHeading %>
@@ -15,22 +15,21 @@
       </div>
       <form class="form">
         <% for(let i=0; i < inputs.length; i++) { %>
-        <div class="form__input-container">
+        <div class="form__inputs">
           <input
             type="<%= inputs[i].type %>"
-            class="register-form__input"
+            class="form__input"
             required
             name="<%= inputs[i].label %>"
             id="<%= inputs[i].id %>"
           />
-          <label for="<%= inputs[i].id %>"><%= inputs[i].label %></label>
-          <div class="bar"></div>
+          <label for="<%= inputs[i].id %>" class="form__label"><%= inputs[i].label %></label>
+          <div class="form__input-bar"></div>
         </div>
         <% } %>
         <a class="form__submit" href="<%= submitLink %>"><%= submitLabel %></a>
       </form>
     </main>
-
     <% include ../partials/footer %>
   </body>
 </html>

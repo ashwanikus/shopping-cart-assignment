@@ -1,0 +1,24 @@
+.flex {
+  @include flex;
+}
+
+.flex-row {
+  @include flex-row;
+}
+
+.flex-column {
+  @include flex-column;
+}
+
+.flex-row-reverse {
+  @include flex-row-reverse;
+}
+
+.flex-column-reverse {
+  @include flex-column-reverse;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}

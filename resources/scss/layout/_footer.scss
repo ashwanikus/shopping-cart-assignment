@@ -1,0 +1,10 @@
+footer {
+  text-align: center;
+  background-color: #eaeaea;
+  @include app-header-padding-changes;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  @include break-point(desktop) {
+    text-align: left;
+  }
+}

@@ -1,0 +1,4 @@
+main {
+  margin-top: $main-margin-top;
+  @include app-header-padding-changes;
+}
