@@ -3,7 +3,7 @@
     window.location = this.value;
   });
 
-  productList.addEventListener('click', event => {
+  productList.addEventListener('click', function(event) {
     event.stopPropagation();
     if (isMatchProduct(event.target)) {
       let productId = event.target.dataset.id;

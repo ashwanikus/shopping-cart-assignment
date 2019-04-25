@@ -5,11 +5,11 @@ const cart = require('../data/cart');
 module.exports = function(app) {
   // use res.render to load up an ejs view file
   app.get('/', function(_, res) {
-    res.render('pages/index', require('../data/signUp'));
+    res.render('pages/index', Object.assign(require('../data/signUp'), { cart: cart }));
   });
 
   app.get('/signin', function(_, res) {
-    res.render('pages/index', require('../data/signIn'));
+    res.render('pages/index', Object.assign(require('../data/signIn'), { cart: cart }));
   });
 
   app.get('/home', function(_, res) {

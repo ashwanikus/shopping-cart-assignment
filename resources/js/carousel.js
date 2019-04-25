@@ -29,10 +29,16 @@ window.carousel = function(slides, dots, prevElem, nextElem) {
   return {
     init: function() {
       showSlides(slideIndex);
-      prevElem.addEventListener('click', () => plusSlides(-1));
-      nextElem.addEventListener('click', () => plusSlides(1));
-      [].forEach.call(dots, (element, index) => {
-        element.addEventListener('click', () => currentSlide(index + 1));
+      prevElem.addEventListener('click', function() {
+        plusSlides(-1);
+      });
+      nextElem.addEventListener('click', function() {
+        plusSlides(1);
+      });
+      [].forEach.call(dots, function(element, index) {
+        element.addEventListener('click', function() {
+          currentSlide(index + 1);
+        });
       });
     }
   };

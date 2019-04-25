@@ -1,52 +1,70 @@
-<header>
+<header class="header">
+  <a href="/home" class="header__logo-link">
+    <img class="header__logo-img" src="/resources/img/logo.png" alt="Sabka Bazaar Logo" />
+  </a>
   <nav class="nav" role="navigation">
-    <img class="nav__logo" src="/resources/img/logo.png" alt="Sabka Bazaar Logo" />
-    <div class="nav__page">
-      <a class="nav__page-link" href="/home">Home</a>
-      <a class="nav__page-link" href="/products">Products</a>
-    </div>
-    <div class="nav__end">
-      <div class="nav__end-register">
-        <a class="nav__end-register-link" href="/SignIn">Sign In</a>
-        <a class="nav__end-register-link" href="/#">Register</a>
-      </div>
-      <div class="nav__end-cart">
-        <a href="/cart" class="nav__end-cart-icon">
-          <svg
-            class="nav__end-cart-logo"
-            version="1.1"
-            id="Layer_1"
-            focusable="false"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            x="0px"
-            y="0px"
-            viewBox="0 0 24 24"
-            style="enable-background:new 0 0 24 24;"
-            xml:space="preserve"
-          >
-            <path
-              d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
-            />
-          </svg>
-          <span class="nav__end-cart-count-xs"><%= (cart && cart.count) || 0 %></span>
-        </a>
-        <div class="nav__end-cart-count">
-          <%= (cart && cart.count) || 0 %> items
-        </div>
-      </div>
-    </div>
-    <div class="menu-toggle">
-      <input type="checkbox" />
-      <span></span>
-      <span></span>
-      <span></span>
-      <ul class="menu">
-        <a href="/home"><li class="menu__link">Home</li></a>
-        <a href="/products"><li class="menu__link">Products</li></a>
-        <a href="/signin"><li class="menu__link">Sign In</li></a>
-        <a href="/"><li class="menu__link">Register</li></a>
-      </ul>
-    </div>
+    <a class="nav__link" href="/home">Home</a>
+    <a class="nav__link" href="/products">Products</a>
   </nav>
+  <div class="header__right">
+    <nav class="nav-sec">
+      <a class="nav-sec__link" href="/SignIn">Sign In</a>
+      <a class="nav-sec__link" href="/#">Register</a>
+    </nav>
+    <div class="header-cart">
+      <a href="/cart" class="header-cart__link">
+        <svg
+          class="header-cart__logo"
+          version="1.1"
+          id="Layer_1"
+          focusable="false"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          viewBox="0 0 24 24"
+          style="enable-background:new 0 0 24 24;"
+          xml:space="preserve"
+        >
+          <path
+            d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+          />
+        </svg>
+        <span class="header-cart__logo-count"><%= (cart && cart.count) || 0 %></span>
+      </a>
+      <div class="header-cart__count">
+        <%= (cart && cart.count) || 0 %> items
+      </div>
+    </div>
+  </div>
+  <div class="nav-xs-container">
+    <input class="nav-xs-container__checkbox" type="checkbox" />
+    <i class="nav-xs-container__lines nav-xs-container__lines--top"></i>
+    <i class="nav-xs-container__lines nav-xs-container__lines--center"></i>
+    <i class="nav-xs-container__lines nav-xs-container__lines--bottom"></i>
+    <nav class="nav-xs">
+      <ul class="nav-xs__list">
+        <li class="nav-xs__item">
+          <a href="/home" class="nav-xs__link">
+            Home
+          </a>
+        </li>
+        <li class="nav-xs__item">
+          <a class="nav-xs__link" href="/products">
+            Products
+          </a>
+        </li>
+        <li class="nav-xs__item">
+          <a class="nav-xs__link" href="/signin">
+            Sign In
+          </a>
+        </li>
+        <li class="nav-xs__item">
+          <a class="nav-xs__link" href="/">
+            Register
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>

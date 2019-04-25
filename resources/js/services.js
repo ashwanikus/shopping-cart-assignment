@@ -8,7 +8,9 @@ window.services = (function() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
-      }).then(res => res.json());
+      }).then(function(res) {
+        return res.json();
+      });
     }
   };
 })();

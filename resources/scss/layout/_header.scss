@@ -1,33 +1,19 @@
-.nav {
-  display: flex;
+.header {
+  @extend .flex-row;
+  @include app-header-padding-changes;
   height: $header-height;
   box-shadow: 0 8px 6px -3px #eeeeee;
-  @include app-header-padding-changes;
 
-  &__logo {
+  &__logo-img {
     margin-left: 1vw;
-    width: 29vw;
+    width: 100%;
     padding: 9.5px 0;
     @include break-point(tablet) {
       margin-left: 0;
-      width: 16vw;
-    }
-  }
-  &__page {
-    @extend .flex-row;
-    &-link {
-      padding: 9.5px 0;
-      margin-left: 9vw;
-      display: none;
-      color: #736a6d;
-      align-self: flex-end;
-      @include break-point(tablet) {
-        display: flex;
-      }
     }
   }
 
-  &__end {
+  &__right {
     @extend .flex-column;
     flex: 0 1 12vw;
     @include break-point(tablet) {
@@ -36,62 +22,77 @@
     @include break-point(desktop) {
       flex-basis: 12vw;
     }
+  }
+}
 
-    &-register {
-      @extend .flex-row;
-      justify-content: flex-end;
-      height: 34%;
-      display: none;
-      @include break-point(tablet) {
-        display: flex;
-      }
-
-      &-link {
-        font-size: 0.7rem;
-        margin-left: 1.5vw;
-      }
+.nav {
+  @extend .flex-row;
+  &__link {
+    padding: 9.5px 0;
+    margin-left: 9vw;
+    display: none;
+    color: #736a6d;
+    align-self: flex-end;
+    @include break-point(tablet) {
+      display: flex;
     }
-    &-cart {
+  }
+}
+
+.nav-sec {
+  @extend .flex-row;
+  justify-content: flex-end;
+  height: 34%;
+  display: none;
+  @include break-point(tablet) {
+    display: flex;
+  }
+
+  &__link {
+    font-size: 0.7rem;
+    margin-left: 1.5vw;
+  }
+}
+
+.header-cart {
+  @extend .flex-row;
+  @extend .flex-center;
+  background-color: #eeeeee;
+
+  &__link {
+    position: relative;
+  }
+  &__logo {
+    height: 0.36 * $header-height;
+    fill: $background-color-secondary;
+    &-count {
+      position: absolute;
+      top: -15%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      background: #50dae3;
+      color: white;
+      height: 1.5rem;
+      width: 1.5rem;
+      text-align: center;
+      border-radius: 1rem;
       @extend .flex-row;
       @extend .flex-center;
-      background-color: #eeeeee;
-
-      &-icon {
-        position: relative;
-      }
-      &-logo {
-        height: 0.36 * $header-height;
-        fill: $background-color-secondary;
-      }
-      &-count {
+      @include break-point(tablet) {
         display: none;
-        @include break-point(tablet) {
-          display: block;
-        }
-        &-xs {
-          position: absolute;
-          top: -15%;
-          left: 50%;
-          transform: translate(-50%, 0);
-          background: #50dae3;
-          color: white;
-          height: 1.5rem;
-          width: 1.5rem;
-          text-align: center;
-          border-radius: 1rem;
-          @extend .flex-row;
-          @extend .flex-center;
-          @include break-point(tablet) {
-            display: none;
-          }
-        }
       }
+    }
+  }
+  &__count {
+    display: none;
+    @include break-point(tablet) {
+      display: block;
     }
   }
 }
 
 // toggle menu for mobile
-.menu-toggle {
+.nav-xs-container {
   display: block;
   position: relative;
   z-index: 1;
@@ -102,7 +103,7 @@
     display: none;
   }
 
-  input {
+  &__checkbox {
     display: block;
     width: 40px;
     height: 32px;
@@ -113,24 +114,25 @@
     opacity: 0;
     z-index: 2;
     -webkit-touch-callout: none;
-    &:checked ~ span {
+    &:checked ~ .nav-xs-container__lines {
       opacity: 1;
       transform: rotate(45deg) translate(-2px, -1px);
       background: #232323;
     }
-    &:checked ~ span:nth-last-child(3) {
+    &:checked ~ .nav-xs-container__lines--center {
       opacity: 0;
       transform: rotate(0deg) scale(0.2, 0.2);
     }
-    &:checked ~ span:nth-last-child(2) {
+    &:checked ~ .nav-xs-container__lines--bottom {
       transform: rotate(-45deg) translate(0, -1px);
     }
-    &:checked ~ ul {
+    &:checked ~ .nav-xs {
       display: block;
       animation: fadein 0.5s;
     }
   }
-  span {
+
+  &__lines {
     display: block;
     width: 33px;
     height: 4px;
@@ -152,7 +154,7 @@
 }
 
 // mobile menu toggle list
-.menu {
+.nav-xs {
   display: none;
   top: 0;
   left: 0;
@@ -166,14 +168,18 @@
   transition: opacity 5s;
   text-align: center;
 
-  &__link {
+  &__list {
+    margin: 10px;
+  }
+  &__item {
     transition: color 0.3s ease;
+  }
+
+  &__link {
+    padding: 10px 0;
+    font-size: 22px;
     &:hover {
       color: tomato;
     }
-  }
-  li {
-    padding: 10px 0;
-    font-size: 22px;
   }
 }
