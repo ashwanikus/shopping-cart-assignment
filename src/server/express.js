@@ -64,14 +64,18 @@ server.get('/products', function (req, res) {
 });
 
 server.get('/addTocart/:id', function (req, res) {
-    var items_total_price = 0;
-    var items_count = 0;
+    let items_total_price = 0;
+    let items_count = 0;
+    //console.log("products >>>>>>>>>> ",products.length);    
     products.forEach(element => {
         if (element.id === req.params.id) {
+            //console.log(element.count," <<<<<<<<<<<<<<<<<<<<<<<<<<", element);
+                        
             if (element.count == undefined) {
                 element.count = 1;
                 element.totalPrice = element.price * element.count;
                 itemsInCart.push(element);
+                //console.log(element.count," <<<<<<<<<<<<<<<<<<<<<<<<<<", element, itemsInCart);
             } else {
                 element.count = element.count + 1;
                 element.totalPrice = element.price * element.count;
@@ -86,8 +90,8 @@ server.get('/addTocart/:id', function (req, res) {
 });
 
 server.get('/cartitems', function (req, res) {
-    var items_total_price = 0;
-    var items_count = 0;
+    let items_total_price = 0;
+    let items_count = 0;
     if (itemsInCart.length > 0) {
         itemsInCart.forEach(element => {
             items_count = items_count + element.count;
@@ -100,19 +104,19 @@ server.get('/cartitems', function (req, res) {
 });
 
 server.get('/itemcount', function (req, res) {
-    var items_count = 0;
-    var checkout = 0;
+    let items_count = 0;
+    let checkout = 0;
     itemsInCart.forEach(element => {
         items_count = items_count + element.count;
         checkout = checkout + (element.price * element.count);
-        //console.log(element.count, " * ", element.price, " = ", element.price * element.count, " ********* ", checkout);
+        ////console.log(element.count, " * ", element.price, " = ", element.price * element.count, " ********* ", checkout);
     });
     res.end(JSON.stringify({ items_count: items_count, checkout: checkout }));
 });
 
 server.get('/updateCart/:id/:task', function (req, res) {
-    var items_total_price = 0;
-    var items_count = 0;
+    let items_total_price = 0;
+    let items_count = 0;
     products.forEach(element => {
         if (element.id === req.params.id) {
             if (req.params.task == "inc") {
@@ -136,8 +140,22 @@ server.get('/updateCart/:id/:task', function (req, res) {
                     element.totalPrice = element.price * element.count;
                     itemsInCart.push(element);
                 } else {
+                    //console.log(element.count, " ************************* ");
                     element.count = element.count - 1;
                     element.totalPrice = element.price * element.count;
+                    if (element.count == 0) {                        
+                        //console.log("before: ",itemsInCart);
+                        itemsInCart.forEach(element => {
+                            if (element.id === req.params.id) {
+                                delete element.count;
+                                delete element.totalPrice;
+                                let removeIndex = itemsInCart.map(function (item) { return item.id; }).indexOf(req.params.id);
+                                //console.log("removed items ",removeIndex);
+                                itemsInCart.splice(removeIndex, 1);
+                            }
+                        });                        
+                        //console.log("after: ",itemsInCart);
+                    }
                 }
                 itemsInCart.forEach(element => {
                     items_count = items_count + element.count;
@@ -149,7 +167,13 @@ server.get('/updateCart/:id/:task', function (req, res) {
     });
 });
 
+server.get('/remove-item/:id', function (req, res) {
+
+
+    res.end(JSON.stringify({ item_in_cart: itemsInCart, 'item_counter': itemCounter.item_counter }));
+});
+
 server.listen(8080, () => {
-    console.log("Server is listening at port 8080");
+    //console.log("Server is listening at port 8080");
 });
 

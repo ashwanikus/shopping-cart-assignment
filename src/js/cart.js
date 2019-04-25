@@ -3,12 +3,11 @@ Handlebars.registerHelper("multiply", function (a, b) {
 });
 
 function itemReq(endpoint) {
-    var cartItemsReq = new XMLHttpRequest();
+    let cartItemsReq = new XMLHttpRequest();
     cartItemsReq.open("GET", endpoint, true);
     cartItemsReq.onload = function () {
         if (cartItemsReq.status >= 200 && cartItemsReq.status < 400) {
-            var data = JSON.parse(cartItemsReq.responseText);
-            console.log(data);
+            let data = JSON.parse(cartItemsReq.responseText);          
             document.getElementById('cart_count').innerHTML = data.items_count;
             itemListsRender(data);
         } else {
@@ -24,16 +23,16 @@ itemReq("cartitems"); // fetch data for the first time whem cart page is loading
 
 
 function itemListsRender(data) {
-    var itemListTemplates = document.getElementById("displaying_cart_itemsTemplates").innerHTML;
-    var itemListCompiledTemplate = Handlebars.compile(itemListTemplates);
-    var generatedHtml = itemListCompiledTemplate(data);
+    let itemListTemplates = document.getElementById("displaying_cart_itemsTemplates").innerHTML;
+    let itemListCompiledTemplate = Handlebars.compile(itemListTemplates);
+    let generatedHtml = itemListCompiledTemplate(data);
 
-    var itemListContainer = document.getElementById("displaying_cart_items");
+    let itemListContainer = document.getElementById("displaying_cart_items");
     itemListContainer.innerHTML = generatedHtml;
 }
 
 function changeQuantity(id, task, li_no) {
-    var itemInput = document.getElementById("item" + li_no);
+    let itemInput = document.getElementById("item" + li_no);
     switch (task) {
         case "inc":
             itemReq(`updateCart/${id}/inc`);
@@ -41,7 +40,7 @@ function changeQuantity(id, task, li_no) {
             itemInput.value = parseInt(itemInput.value) + 1;
             break;
         case "dec":
-            if (parseInt(itemInput.value) != 0) {
+            if (parseInt(itemInput.value) >= 0) {
                 itemReq(`updateCart/${id}/dec`);
                 updateCartItem();
                 itemInput.value = parseInt(itemInput.value) - 1;

@@ -1,10 +1,9 @@
 function updateCartItem() {
-    var cartItemsReq = new XMLHttpRequest();
+    let cartItemsReq = new XMLHttpRequest();
     cartItemsReq.open("GET", "itemcount", true);
     cartItemsReq.onload = function () {
         if (cartItemsReq.status >= 200 && cartItemsReq.status < 400) {
-            var data = JSON.parse(cartItemsReq.responseText);
-            console.log(data);
+            let data = JSON.parse(cartItemsReq.responseText);
             document.getElementById('cart_count').innerHTML = data.items_count;
 
             if (window.location.pathname == "/cart.html") {

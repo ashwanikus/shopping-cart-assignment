@@ -9,11 +9,11 @@ Handlebars.registerHelper('ifFirstIndex', function (index, options) {
 // --------------------------------------------- //
 // fetching the category on product listing
 // --------------------------------------------- //
-var prod_categoriesXHttp = new XMLHttpRequest();
+let prod_categoriesXHttp = new XMLHttpRequest();
 prod_categoriesXHttp.open("GET", "categories", true);
 prod_categoriesXHttp.onload = function () {
     if (prod_categoriesXHttp.status >= 200 && prod_categoriesXHttp.status < 400) {
-        var data = JSON.parse(prod_categoriesXHttp.responseText);
+        let data = JSON.parse(prod_categoriesXHttp.responseText);
         createProdCategoryContainer(data);
     } else {
         console.log("We conected to the server, but it returned an error.");
@@ -25,18 +25,18 @@ prod_categoriesXHttp.onerror = function () {
 prod_categoriesXHttp.send();
 
 function createProdCategoryContainer(data) {
-    var slideshowTemplates = document.getElementById("productMenuTemplates").innerHTML;
-    var slideshowCompiledTemplate = Handlebars.compile(slideshowTemplates);
-    var generatedHtml = slideshowCompiledTemplate(data);
+    let slideshowTemplates = document.getElementById("productMenuTemplates").innerHTML;
+    let slideshowCompiledTemplate = Handlebars.compile(slideshowTemplates);
+    let generatedHtml = slideshowCompiledTemplate(data);
 
-    var categoryContainer = document.getElementById("productMenu");
+    let categoryContainer = document.getElementById("productMenu");
     categoryContainer.innerHTML += generatedHtml;
 
-    var header = document.getElementById("productMenu");
-    var btns = header.getElementsByClassName("links");
-    for (var i = 0; i < btns.length; i++) {
+    let header = document.getElementById("productMenu");
+    let btns = header.getElementsByClassName("links");
+    for (let i = 0; i < btns.length; i++) {
         btns[i].addEventListener("click", function () {
-            var current = document.getElementsByClassName("active");
+            let current = document.getElementsByClassName("active");
             current[0].className = current[0].className.replace(" active", "");
             this.className += " active";
         });
@@ -51,11 +51,11 @@ function createProdCategoryContainer(data) {
 // --------------------------------------------- //
 // fetching the products on product listing
 // --------------------------------------------- //
-var productsXHttp = new XMLHttpRequest();
+let productsXHttp = new XMLHttpRequest();
 productsXHttp.open("GET", "products", true);
 productsXHttp.onload = function () {
     if (productsXHttp.status >= 200 && productsXHttp.status < 400) {
-        var data = JSON.parse(productsXHttp.responseText);
+        let data = JSON.parse(productsXHttp.responseText);
         createProductsContainer(data);
     } else {
         console.log("We conected to the server, but it returned an error.");
@@ -67,11 +67,11 @@ productsXHttp.onerror = function () {
 productsXHttp.send();
 
 function createProductsContainer(data) {
-    var slideshowTemplates = document.getElementById("productListingTemplates").innerHTML;
-    var slideshowCompiledTemplate = Handlebars.compile(slideshowTemplates);
-    var generatedHtml = slideshowCompiledTemplate(data);
+    let slideshowTemplates = document.getElementById("productListingTemplates").innerHTML;
+    let slideshowCompiledTemplate = Handlebars.compile(slideshowTemplates);
+    let generatedHtml = slideshowCompiledTemplate(data);
 
-    var categoryContainer = document.getElementById("product_listing");
+    let categoryContainer = document.getElementById("product_listing");
     categoryContainer.innerHTML = generatedHtml;
 }
 // --------------------------------------------- //
@@ -84,12 +84,11 @@ function createProductsContainer(data) {
 // products filter on product listing
 // --------------------------------------------- //
 function renderProducts(id) {
-    var productsByIdXHttp = new XMLHttpRequest();
+    let productsByIdXHttp = new XMLHttpRequest();
     productsByIdXHttp.open("GET", "products?id=" + id, true);
     productsByIdXHttp.onload = function () {
         if (productsByIdXHttp.status >= 200 && productsByIdXHttp.status < 400) {
-            var data = JSON.parse(productsByIdXHttp.responseText);
-            console.log(data);
+            let data = JSON.parse(productsByIdXHttp.responseText);
             createProductsContainer(data);
         } else {
             console.log("We conected to the server, but it returned an error.");
@@ -108,13 +107,13 @@ function renderProducts(id) {
 // add to cart on product listing
 // --------------------------------------------- //
 function addToCart(id) {
-    var addToCartXHttp = new XMLHttpRequest();
+    let addToCartXHttp = new XMLHttpRequest();
     addToCartXHttp.open("GET", "addTocart/" + id, true);
     addToCartXHttp.onload = function () {
         if (addToCartXHttp.status >= 200 && addToCartXHttp.status < 400) {
-            var data = JSON.parse(addToCartXHttp.responseText);
-            console.log(data);
-            document.getElementById('cart_count').innerHTML = data.items_count;
+            let data = JSON.parse(addToCartXHttp.responseText);
+            window.location.href = "/cart.html";
+            //document.getElementById('cart_count').innerHTML = data.items_count;
         } else {
             console.log("We conected to the server, but it returned an error.");
         }
