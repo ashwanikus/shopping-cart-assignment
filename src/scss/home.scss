@@ -28,6 +28,9 @@
     }
   }
 }
+#prev, #next{
+  z-index: 1;
+}
 
 .category_img {
   width: 45%;
