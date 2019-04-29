@@ -6,14 +6,14 @@
   </head>
   <body>
     <% include ../partials/header %>
-    <main class="register">
-      <div class="heading">
+    <main class="register" role="main">
+      <div class="heading" id="heading-main">
         <h1 class="heading__primary">
           <%= primaryHeading %>
         </h1>
         <h2 class="heading__sub"><%= primarySubHeading %></h2>
       </div>
-      <form class="form">
+      <form class="form" aria-labelledby="heading-main" tabindex="0" role="form">
         <% for(let i=0; i < inputs.length; i++) { %>
         <div class="form__inputs">
           <input
@@ -26,7 +26,7 @@
           <label for="<%= inputs[i].id %>" class="form__label"><%= inputs[i].label %></label>
         </div>
         <% } %>
-        <a class="form__submit" href="<%= submitLink %>"><%= submitLabel %></a>
+        <a class="form__submit" href="<%= submitLink %>" role="button"><%= submitLabel %></a>
       </form>
     </main>
     <% include ../partials/footer %>

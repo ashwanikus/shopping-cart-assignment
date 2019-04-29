@@ -7,7 +7,7 @@
   <body class="container">
     <% include ../partials/header %>
 
-    <main class="home">
+    <main class="home" role="main">
       <div class="carousel">
         <ul class="carousel__items">
           <% for(let i=0; i < offers.length; i++) { %>
@@ -22,17 +22,23 @@
         </ul>
         <div class="carousel__navigation carousel__navigation--prev">PREV</div>
         <div class="carousel__navigation carousel__navigation--next">NEXT</div>
-        <ul class="carousel_pagination">
+        <ul class="carousel-dots">
           <% for(let i=0; i < offers.length; i++) { %>
-          <li class="carousel_pagination__dot"></li>
+          <li class="carousel-dots__dot" data-index="<%= i %>"></li>
           <% } %>
         </ul>
       </div>
 
       <% for(let i=0; i < categories.length; i++) { %>
       <div class="category">
-        <img src="<%= categories[i].imageUrl %>" alt="<%= categories[i].name %> logo" class="category-logo" />
-        <div class="flex-column category-detail">
+        <img
+          src="<%= categories[i].imageUrl %>"
+          alt="<%= categories[i].name %> logo"
+          class="category-logo"
+          tabindex="0"
+          aria-labelledby="category-description-<%= i %>"
+        />
+        <div class="flex-column category-detail" id="category-description-<%= i %>">
           <h1 class="category-detail__main"><%= categories[i].name %></h1>
           <h2 class="category-detail__sub"><%= categories[i].description %></h2>
           <a href="/products/<%= categories[i].key %>" class="btn">Explore <%= categories[i].key %></a>

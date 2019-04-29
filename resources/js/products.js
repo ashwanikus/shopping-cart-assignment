@@ -4,6 +4,7 @@
   });
 
   productList.addEventListener('click', function(event) {
+    event.preventDefault();
     event.stopPropagation();
     if (isMatchProduct(event.target)) {
       let productId = event.target.dataset.id;

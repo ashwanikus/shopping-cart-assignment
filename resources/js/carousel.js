@@ -1,4 +1,4 @@
-window.carousel = function(slides, dots, prevElem, nextElem) {
+window.carousel = function(slides, dotsElem, dots, isDotElem, prevElem, nextElem) {
   let slideIndex = 1;
   function plusSlides(n) {
     showSlides((slideIndex += n));
@@ -35,10 +35,10 @@ window.carousel = function(slides, dots, prevElem, nextElem) {
       nextElem.addEventListener('click', function() {
         plusSlides(1);
       });
-      [].forEach.call(dots, function(element, index) {
-        element.addEventListener('click', function() {
-          currentSlide(index + 1);
-        });
+      dotsElem.addEventListener('click', function(e) {
+        if (isDotElem(e.target)) {
+          currentSlide(e.target.dataset.index + 1);
+        }
       });
     }
   };

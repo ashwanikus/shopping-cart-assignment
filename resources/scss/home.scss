@@ -8,8 +8,6 @@
   animation-duration: 1.5s;
 }
 
-
-
 // bottom radial shadow css
 .border-bottom-radial {
   position: relative;
@@ -66,7 +64,7 @@ main.home {
     }
   }
 
-  .carousel_pagination {
+  .carousel-dots {
     position: absolute;
     display: flex;
     flex: 1;

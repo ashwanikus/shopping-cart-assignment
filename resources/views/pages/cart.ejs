@@ -4,12 +4,12 @@
     <% include ../partials/head %>
     <link rel="stylesheet" href="/resources/css/cart.css" />
   </head>
-  <body class="container">
+  <body class="container" role="document">
     <% include ../partials/header %>
 
-    <main class="cart">
+    <main class="cart" role="main">
       <div class="cart__header">
-        <div class="cart__header-text">My Cart (<%= cart.count %> item)</div>
+        <div class="cart__header-text" tabindex="0">My Cart (<%= cart.count %> item)</div>
       </div>
 
       <% for(let i=0; i < cart.items.length; i++) { %>
@@ -18,16 +18,32 @@
           src="<%= cart.items[i].product.imageURL %>"
           alt="<%= cart.items[i].product.name %> logo"
           class="cart__item-logo"
+          tabindex="0"
+          aria-labelledby="cart-item-<%= i %>"
         />
         <div class="cart__item-detail">
-          <p class="cart__item-detail-heading"><%= cart.items[i].product.name %></p>
+          <p class="cart__item-detail-heading" id="cart-item-<%= i %>"><%= cart.items[i].product.name %></p>
           <div class="cart__item-detail-info">
             <div class="cart__item-detail-info-count">
-              <a class="cart__item-detail-info-remove" data-id="<%= cart.items[i].product.id %>">&#45;</a>
+              <a
+                href="#"
+                class="cart__item-detail-info-remove"
+                data-id="<%= cart.items[i].product.id %>"
+                role="button"
+                aria-label="decrease <%= cart.items[i].product.name %>"
+                >&#45;</a
+              >
               <span class="cart__item-detail-info-item-count" data-id="<%= cart.items[i].product.id %>"
                 ><%= cart.items[i].count %></span
               >
-              <a class="cart__item-detail-info-add" data-id="<%= cart.items[i].product.id %>">&#43;</a>
+              <a
+                class="cart__item-detail-info-add"
+                data-id="<%= cart.items[i].product.id %>"
+                role="button"
+                href="#"
+                aria-label="increase <%= cart.items[i].product.name %>"
+                >&#43;</a
+              >
               * Rs.<%= cart.items[i].product.price %>
             </div>
             <span class="cart__item-detail-info-total" data-id="<%= cart.items[i].product.id %>">

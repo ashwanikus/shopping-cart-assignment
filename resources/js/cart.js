@@ -1,5 +1,6 @@
 (function init(cartList, isMatchedElement, cartItemController, headerCartController) {
   cartList.addEventListener('click', function(event) {
+    event.preventDefault();
     event.stopPropagation();
     let matchInfo = isMatchedElement(event.target);
     if (matchInfo.match) {
