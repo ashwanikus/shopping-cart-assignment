@@ -86,6 +86,16 @@ module.exports = {
             filename: 'cart.html',
             inject: true,
             template: path.resolve(__dirname, "../src/cart.html")
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'partials/header.html',
+            inject: true,
+            template: path.resolve(__dirname, "../src/partials/header.html")
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'partials/footer.html',
+            inject: true,
+            template: path.resolve(__dirname, "../src/partials/footer.html")
         })
     ]
 };

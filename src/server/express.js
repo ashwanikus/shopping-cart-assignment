@@ -1,5 +1,6 @@
 import express from "express";
 import path from "path";
+import { resolve } from "dns";
 
 const server = express();
 const webpack = require("webpack");
@@ -7,12 +8,14 @@ const config = require("../../config/webpack.dev.js");
 const compiler = webpack(config);
 
 let bodyParser = require('body-parser');
+let fs = require('fs');
 
 let products = require("../../json/products/index.get.json");
 let addtocart = require("../../json/addToCart/index.post.json");
 let categories = require("../../json/categories/index.get.json");
 let banners = require("../../json/banners/index.get.json");
 let itemsInCart = [];
+console.log(__dirname, " *********** ");
 
 // parse application/x-www-form-urlencoded
 server.use(bodyParser.urlencoded({ extended: false }));
@@ -70,7 +73,7 @@ server.get('/addTocart/:id', function (req, res) {
     products.forEach(element => {
         if (element.id === req.params.id) {
             //console.log(element.count," <<<<<<<<<<<<<<<<<<<<<<<<<<", element);
-                        
+
             if (element.count == undefined) {
                 element.count = 1;
                 element.totalPrice = element.price * element.count;
@@ -143,7 +146,7 @@ server.get('/updateCart/:id/:task', function (req, res) {
                     //console.log(element.count, " ************************* ");
                     element.count = element.count - 1;
                     element.totalPrice = element.price * element.count;
-                    if (element.count == 0) {                        
+                    if (element.count == 0) {
                         //console.log("before: ",itemsInCart);
                         itemsInCart.forEach(element => {
                             if (element.id === req.params.id) {
@@ -153,7 +156,7 @@ server.get('/updateCart/:id/:task', function (req, res) {
                                 //console.log("removed items ",removeIndex);
                                 itemsInCart.splice(removeIndex, 1);
                             }
-                        });                        
+                        });
                         //console.log("after: ",itemsInCart);
                     }
                 }
@@ -168,10 +171,25 @@ server.get('/updateCart/:id/:task', function (req, res) {
 });
 
 server.get('/remove-item/:id', function (req, res) {
-
-
     res.end(JSON.stringify({ item_in_cart: itemsInCart, 'item_counter': itemCounter.item_counter }));
 });
+
+server.get('/partials_content', function (req, res) {
+    let promise = new Promise(function (resolve, reject) {
+        fs.readFile('./dist/partials/header.html', 'utf8', function (err, header_data) {
+            if (err) reject(err);
+            resolve(header_data);
+        });
+    });
+
+    promise.then(function (data) {
+        fs.readFile('./dist/partials/footer.html', 'utf8', function (err, footer_data) {
+            if (err) reject(err);
+            res.end(JSON.stringify({header:data, footer:footer_data}));
+        });
+    });
+});
+
 
 server.listen(8080, () => {
     //console.log("Server is listening at port 8080");
