@@ -11,14 +11,14 @@ require("./scss/home.scss");
 require("./scss/common.scss");
 
 
-(function () {
+(function (header, footer) {
   let ajaxReq = new XMLHttpRequest();
   ajaxReq.open("GET", 'partials_content', true);
   ajaxReq.onload = function () {
     if (ajaxReq.status >= 200 && ajaxReq.status < 400) {
       var data = JSON.parse(ajaxReq.responseText);
-      document.getElementById("header").innerHTML = data.header;
-      document.getElementById("footer").innerHTML = data.footer;
+      header.innerHTML = data.header;
+      footer.innerHTML = data.footer;
     } else {
       console.log("We conected to the server, but it returned an error.");
     }
@@ -27,7 +27,10 @@ require("./scss/common.scss");
     console.log("Connection Error");
   }
   ajaxReq.send();
-}());
+}(
+  document.getElementById("header"),
+  document.getElementById("footer")
+));
 
 function updateCartCount(data) {
   document.getElementById('cart_count').innerHTML = data.items_count;

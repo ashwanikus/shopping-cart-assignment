@@ -6,23 +6,33 @@ Handlebars.registerHelper('ifFirstIndex', function (index, options) {
         return options.inverse(this);
     }
 });
-// --------------------------------------------- //
-// fetching the category on product listing
-// --------------------------------------------- //
-let prod_categoriesXHttp = new XMLHttpRequest();
-prod_categoriesXHttp.open("GET", "categories", true);
-prod_categoriesXHttp.onload = function () {
-    if (prod_categoriesXHttp.status >= 200 && prod_categoriesXHttp.status < 400) {
-        let data = JSON.parse(prod_categoriesXHttp.responseText);
+
+
+window.onload = function () {
+    // --------------------------------------------- //
+    // fetching the category on product listing
+    // --------------------------------------------- //
+    var categoriesData = api_request.get_endpoint("categories");
+    categoriesData.then(function (data) {
         createProdCategoryContainer(data);
-    } else {
-        console.log("We conected to the server, but it returned an error.");
-    }
+    });
+    // --------------------------------------------- //
+    //end fetching the category on product listing
+    // --------------------------------------------- //
+
+
+    // --------------------------------------------- //
+    // fetching the products on product listing
+    // --------------------------------------------- //
+
+    var productData = api_request.get_endpoint("products");
+    productData.then(function (data) {
+        createProductsContainer(data);
+    });
+
+    updateCartItem();
 }
-prod_categoriesXHttp.onerror = function () {
-    console.log("Connection Error");
-}
-prod_categoriesXHttp.send();
+
 
 function createProdCategoryContainer(data) {
     let slideshowTemplates = document.getElementById("productMenuTemplates").innerHTML;
@@ -42,29 +52,6 @@ function createProdCategoryContainer(data) {
         });
     }
 }
-// --------------------------------------------- //
-//end fetching the category on product listing
-// --------------------------------------------- //
-
-
-
-// --------------------------------------------- //
-// fetching the products on product listing
-// --------------------------------------------- //
-let productsXHttp = new XMLHttpRequest();
-productsXHttp.open("GET", "products", true);
-productsXHttp.onload = function () {
-    if (productsXHttp.status >= 200 && productsXHttp.status < 400) {
-        let data = JSON.parse(productsXHttp.responseText);
-        createProductsContainer(data);
-    } else {
-        console.log("We conected to the server, but it returned an error.");
-    }
-}
-productsXHttp.onerror = function () {
-    console.log("Connection Error");
-}
-productsXHttp.send();
 
 function createProductsContainer(data) {
     let slideshowTemplates = document.getElementById("productListingTemplates").innerHTML;

@@ -32,21 +32,21 @@
     <script type="text/x-handlebars-template" id="productMenuTemplates">
         {{#each categories}}
             {{#ifFirstIndex @index}}
-                <li><a onclick="renderProducts('{{id}}')" class="links active">{{name}}</a></li>
+                <li><a onclick="renderProducts('{{id}}')" class="links active" tabindex="0">{{name}}</a></li>
             {{else}}
-                <li><a onclick="renderProducts('{{id}}')" class="links">{{name}}</a></li>
+                <li><a onclick="renderProducts('{{id}}')" class="links" tabindex="0">{{name}}</a></li>
             {{/ifFirstIndex}}
         {{/each}}
     </script>
     <script type="text/x-handlebars-template" id="productListingTemplates">
         {{#each products}}
         <div class="items">
-            <h3 title="{{name}}">{{name}}</h3>
+            <h3 title="{{name}}" tabindex="0">{{name}}</h3>
             <div class="product_Details">
-                <span><img src="{{imageURL}}" alt="{{name}}" srcset=""></span>
-                <p title="{{description}}">{{description}}</p>
+                <span><img src="{{imageURL}}" alt="{{name}}" srcset="" tabindex="0"></span>
+                <p title="{{description}}" tabindex="0">{{description}}</p>
                 <div class="price_tag">
-                    <a onclick="addToCart('{{id}}')" class="btn--default">Buy Now <span>MRP Rs.{{price}}</span></a>
+                    <a onclick="addToCart('{{id}}')" class="btn--default" tabindex="0">Buy Now <span>MRP Rs.{{price}}</span></a>
                 </div>
             </div>
         </div>
@@ -54,6 +54,7 @@
     </script>
     <footer id="footer"></footer>
     <script src="vendor/handlebars-v4.1.1.js"></script>
+    <script src="js/api_request.js"></script>
     <script src="js/products.js"></script>
     <script src="js/common.js"></script>
 </body>

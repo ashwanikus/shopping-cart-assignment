@@ -143,17 +143,14 @@ server.get('/updateCart/:id/:task', function (req, res) {
                     element.totalPrice = element.price * element.count;
                     itemsInCart.push(element);
                 } else {
-                    //console.log(element.count, " ************************* ");
                     element.count = element.count - 1;
                     element.totalPrice = element.price * element.count;
                     if (element.count == 0) {
-                        //console.log("before: ",itemsInCart);
                         itemsInCart.forEach(element => {
                             if (element.id === req.params.id) {
                                 delete element.count;
                                 delete element.totalPrice;
                                 let removeIndex = itemsInCart.map(function (item) { return item.id; }).indexOf(req.params.id);
-                                //console.log("removed items ",removeIndex);
                                 itemsInCart.splice(removeIndex, 1);
                             }
                         });
@@ -185,7 +182,7 @@ server.get('/partials_content', function (req, res) {
     promise.then(function (data) {
         fs.readFile('./dist/partials/footer.html', 'utf8', function (err, footer_data) {
             if (err) reject(err);
-            res.end(JSON.stringify({header:data, footer:footer_data}));
+            res.end(JSON.stringify({ header: data, footer: footer_data }));
         });
     });
 });

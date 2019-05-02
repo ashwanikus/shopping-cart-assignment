@@ -4,7 +4,11 @@ function updateCartItem() {
     cartItemsReq.onload = function () {
         if (cartItemsReq.status >= 200 && cartItemsReq.status < 400) {
             let data = JSON.parse(cartItemsReq.responseText);
-            document.getElementById('cart_count').innerHTML = data.items_count;
+            if (data.items_count != 0) {
+                document.getElementById('cart_count').innerHTML = data.items_count;
+            } else {
+                document.getElementById('cart_count').innerHTML = 0;
+            }
 
             if (window.location.pathname == "/cart.html") {
                 document.getElementById('checkoutAmount').innerHTML = data.checkout;
@@ -19,5 +23,3 @@ function updateCartItem() {
     }
     cartItemsReq.send();
 }
-
-updateCartItem();

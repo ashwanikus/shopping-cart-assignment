@@ -16,22 +16,22 @@
             <div class="onhover_Cart">
                 <div class="cart_Box">
                     <div>
-                        <h3>My Cart<span>(<span id="item_span">1</span> item)</span></h3>
+                        <h3 tabindex="0">My Cart<span>(<span id="item_span">1</span> item)</span></h3>
                         <div class="cart_Items">
                             <ul id="displaying_cart_items"></ul>
                         </div>
                         <div class="badge">
                             <div>
-                                <img src="/static/images/lowest-price.png" alt="">
+                                <img src="/static/images/lowest-price.png" alt="Loweset price image" tabindex="0">
                             </div>
                             <div>
-                                <p>You won't find cheaper
+                                <p tabindex="0">You won't find cheaper
                                     anywhere</p>
                             </div>
                         </div>
                     </div>
                     <div class="checkout">
-                        <p>Promo code can be applied on
+                        <p tabindex="0">Promo code can be applied on
                             payment page</p>
                         <button class="btn--default full_width">Proceed
                             to checkout <span>Rs. <i id="checkoutAmount"></i></span></button>
@@ -45,7 +45,7 @@
     <script type="text/x-handlebars-template" id="displaying_cart_itemsTemplates">
         {{#if item_in_cart}}
             {{#each item_in_cart}}
-            <li>
+            <li tabindex="0">
                 <div class="items flex_box">
                     <div class="img_wrap">
                         <img src="{{imageURL}}" alt="{{name}}">
@@ -69,6 +69,7 @@
     </script>
     <footer id="footer"></footer>
     <script src="vendor/handlebars-v4.1.1.js"></script>
+    <script src="js/api_request.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/common.js"></script>
 </body>

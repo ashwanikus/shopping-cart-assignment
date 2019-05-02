@@ -2,39 +2,20 @@ Handlebars.registerHelper('inc', function (index, options) {
     return parseInt(index) + 1;
 });
 
-
-
-let categoriesXHttp = new XMLHttpRequest();
-categoriesXHttp.open("GET", "categories", true);
-categoriesXHttp.onload = function () {
-    if (categoriesXHttp.status >= 200 && categoriesXHttp.status < 400) {
-        let data = JSON.parse(categoriesXHttp.responseText);
+window.onload = function () {
+    var cData = api_request.get_endpoint("categories");
+    cData.then(function (data) {
         createCategoryContainer(data);
-    } else {
-        console.log("We conected to the server, but it returned an error.");
-    }
-}
-categoriesXHttp.onerror = function () {
-    console.log("Connection Error");
-}
-categoriesXHttp.send();
+    });
 
-let bannerXHttp = new XMLHttpRequest();
-bannerXHttp.open("GET", "banners", true);
-bannerXHttp.onload = function () {
-    if (bannerXHttp.status >= 200 && bannerXHttp.status < 400) {
-        let data = JSON.parse(bannerXHttp.responseText);
+    var bannerData = api_request.get_endpoint("banners");
+    bannerData.then(function (data) {
         createSlideshowDots(data);
         createSlideshow(data);
-    } else {
-        console.log("We conected to the server, but it returned an error.");
-    }
-}
-bannerXHttp.onerror = function () {
-    console.log("Connection Error");
-}
-bannerXHttp.send();
+    });
 
+    updateCartItem();
+}
 
 function createCategoryContainer(data) {
     let categoryTemplate = document.getElementById("categoryTemplates").innerHTML;
