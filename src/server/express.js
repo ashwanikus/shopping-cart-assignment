@@ -180,7 +180,7 @@ server.get('/partials_content', function (req, res) {
     });
 
     promise.then(function (data) {
-        fs.readFile('./dist/partials/footer.html', 'utf8', function (err, footer_data) {
+        fs.readFile('./src/partials/footer.html', 'utf8', function (err, footer_data) {
             if (err) reject(err);
             res.end(JSON.stringify({ header: data, footer: footer_data }));
         });

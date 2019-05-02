@@ -5,9 +5,11 @@ function updateCartItem() {
         if (cartItemsReq.status >= 200 && cartItemsReq.status < 400) {
             let data = JSON.parse(cartItemsReq.responseText);
             if (data.items_count != 0) {
-                document.getElementById('cart_count').innerHTML = data.items_count;
+                document.getElementById('cart_count0').innerHTML = data.items_count;
+                document.getElementById('cart_count1').innerHTML = data.items_count;
             } else {
-                document.getElementById('cart_count').innerHTML = 0;
+                document.getElementById('cart_count0').innerHTML = 0;
+                document.getElementById('cart_count1').innerHTML = 0;
             }
 
             if (window.location.pathname == "/cart.html") {

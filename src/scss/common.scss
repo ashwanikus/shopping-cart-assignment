@@ -196,10 +196,13 @@ header {
         border: 1px solid;
         line-height: 16px;
         font-size: 12px;
-        span {
-          display: none;
-        }
+        // span {
+        //   display: none;
+        // }
       }
+    }
+    span {
+      display: none;
     }
   }
 }
@@ -411,11 +414,14 @@ header {
   .align_right {
     float: right;
     li {
-      padding-right: 15px;
+      padding-right: 0px;
       a {
         font-size: 14px;
         font-weight: 300;
       }
+    }
+    li:first-child{
+      padding-right: 15px;
     }
   }
   header {
@@ -444,11 +450,11 @@ header {
           position: absolute;
           left: 16px;
           top: 16px;
-          width: auto;
+          width: 35px;
         }
         span {
           position: static;
-          display: inline-block;
+          display: none;
           color: #222222;
           background-color: transparent;
           height: auto;
@@ -456,10 +462,11 @@ header {
           border: none;
           font-size: 16px;
           font-weight: 300;
-          span {
-            display: inline-block;
-          }
         }
+      }
+      span {
+        display: inline-block;
+        font-size:16px;
       }
     }
   }
