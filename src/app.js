@@ -31,7 +31,3 @@ require("./scss/common.scss");
   document.getElementById("header"),
   document.getElementById("footer")
 ));
-
-function updateCartCount(data) {
-  document.getElementById('cart_count').innerHTML = data.items_count;
-}

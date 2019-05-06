@@ -1,3 +1,3 @@
 window.onload = function () {
-    updateCartItem();
+    common_script.updateCartItem();
 }

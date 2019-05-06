@@ -1,12 +1,7 @@
-Handlebars.registerHelper("multiply", function (a, b) {
-    return parseInt(a) * parseInt(b);
-});
-
 window.onload = function () {
     updateCartItem();
     itemReq("cartitems", document.getElementById('cart_count0'), document.getElementById('cart_count1')); // fetch data for the first time whem cart page is loading    
 }
-
 
 function itemReq(endpoint, cart_count0, cart_count1) {
     var cartData = api_request.get_endpoint(endpoint);
@@ -17,15 +12,8 @@ function itemReq(endpoint, cart_count0, cart_count1) {
     });
 }
 
-
-
 function itemListsRender(data) {
-    let itemListTemplates = document.getElementById("displaying_cart_itemsTemplates").innerHTML;
-    let itemListCompiledTemplate = Handlebars.compile(itemListTemplates);
-    let generatedHtml = itemListCompiledTemplate(data);
-
-    let itemListContainer = document.getElementById("displaying_cart_items");
-    itemListContainer.innerHTML = generatedHtml;
+    common_script.render("displaying_cart_itemsTemplates", "displaying_cart_items", data, "append");
 }
 
 function changeQuantity(id, task, li_no) {

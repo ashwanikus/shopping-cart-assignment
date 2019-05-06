@@ -23,7 +23,7 @@ let carousal = function (slides, dots, prev, next) {
     }
 
     return {
-        init: function () {
+        start: function () {
             showSlides(slideIndex);
             prev.addEventListener('click', function () {
                 plusSlides(-1);

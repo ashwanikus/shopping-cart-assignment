@@ -1,7 +1,6 @@
 let api_request = (function () {
   return {
     get_endpoint: function (endpoint) {
-      console.log(endpoint);
       return fetch(endpoint, {
         method: 'GET',
         headers: {

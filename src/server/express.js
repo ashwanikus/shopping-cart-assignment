@@ -15,7 +15,6 @@ let addtocart = require("../../json/addToCart/index.post.json");
 let categories = require("../../json/categories/index.get.json");
 let banners = require("../../json/banners/index.get.json");
 let itemsInCart = [];
-console.log(__dirname, " *********** ");
 
 // parse application/x-www-form-urlencoded
 server.use(bodyParser.urlencoded({ extended: false }));
@@ -173,7 +172,7 @@ server.get('/remove-item/:id', function (req, res) {
 
 server.get('/partials_content', function (req, res) {
     let promise = new Promise(function (resolve, reject) {
-        fs.readFile('./dist/partials/header.html', 'utf8', function (err, header_data) {
+        fs.readFile('./src/partials/header.html', 'utf8', function (err, header_data) {
             if (err) reject(err);
             resolve(header_data);
         });

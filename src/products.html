@@ -32,9 +32,15 @@
     <script type="text/x-handlebars-template" id="productMenuTemplates">
         {{#each categories}}
             {{#ifFirstIndex @index}}
-                <li><a onclick="renderProducts('{{id}}')" class="links active" tabindex="0">{{name}}</a></li>
+                <li>
+                    <input type="hidden" class="links_input" id="links_input{{@index}}" value="{{id}}"/>
+                    <a class="links active" tabindex="0">{{name}}</a>
+                </li>
             {{else}}
-                <li><a onclick="renderProducts('{{id}}')" class="links" tabindex="0">{{name}}</a></li>
+                <li>
+                    <input type="hidden" class="links_input" id="links_input{{@index}}" value="{{id}}"/>
+                    <a class="links" tabindex="0">{{name}}</a>
+                </li>
             {{/ifFirstIndex}}
         {{/each}}
     </script>
@@ -45,8 +51,9 @@
             <div class="product_Details">
                 <span><img src="{{imageURL}}" alt="{{name}}" srcset="" tabindex="0"></span>
                 <p title="{{description}}" tabindex="0">{{description}}</p>
+                <input type="hidden" class="item_id" id="item_id{{@index}}" value="{{id}}" />
                 <div class="price_tag">
-                    <a onclick="addToCart('{{id}}')" class="btn--default" tabindex="0">Buy Now <span>MRP Rs.{{price}}</span></a>
+                    <a class="btn--default add_items" tabindex="0">Buy Now <span>MRP Rs.{{price}}</span></a>
                 </div>
             </div>
         </div>
@@ -54,9 +61,11 @@
     </script>
     <footer id="footer"></footer>
     <script src="vendor/handlebars-v4.1.1.js"></script>
-    <script src="js/api_request.js"></script>
-    <script src="js/products.js"></script>
+    <script src="js/handlebars_helper.js"></script>
+    <script src="js/api_request.js"></script>    
     <script src="js/common.js"></script>
+    <script src="js/products.js"></script>
+
 </body>
 
 </html>

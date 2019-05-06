@@ -1,9 +1,20 @@
-function updateCartItem() {
-    let cartItemsReq = new XMLHttpRequest();
-    cartItemsReq.open("GET", "itemcount", true);
-    cartItemsReq.onload = function () {
-        if (cartItemsReq.status >= 200 && cartItemsReq.status < 400) {
-            let data = JSON.parse(cartItemsReq.responseText);
+let common_script = {
+    render: function (templateid, container, data, operator) {
+        let templates = document.getElementById(templateid).innerHTML;
+        let compiledTemplate = Handlebars.compile(templates);
+        let generatedHtml = compiledTemplate(data);
+
+        let showcase = document.getElementById(container);
+        if(operator == "append"){
+            showcase.innerHTML += generatedHtml;
+        }
+        if(operator == "remove"){
+            showcase.innerHTML = generatedHtml;
+        }
+    },
+    updateCartItem: function () {
+        var item_count_data = api_request.get_endpoint("itemcount");
+        item_count_data.then(function (data) {
             if (data.items_count != 0) {
                 document.getElementById('cart_count0').innerHTML = data.items_count;
                 document.getElementById('cart_count1').innerHTML = data.items_count;
@@ -16,12 +27,6 @@ function updateCartItem() {
                 document.getElementById('checkoutAmount').innerHTML = data.checkout;
                 document.getElementById('item_span').innerHTML = data.items_count;
             }
-        } else {
-            console.log("We conected to the server, but it returned an error.");
-        }
+        });
     }
-    cartItemsReq.onerror = function () {
-        console.log("Connection Error");
-    }
-    cartItemsReq.send();
-}
+};

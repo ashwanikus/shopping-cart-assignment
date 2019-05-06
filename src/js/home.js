@@ -1,7 +1,3 @@
-Handlebars.registerHelper('inc', function (index, options) {
-    return parseInt(index) + 1;
-});
-
 window.onload = function () {
     var cData = api_request.get_endpoint("categories");
     cData.then(function (data) {
@@ -14,35 +10,19 @@ window.onload = function () {
         createSlideshow(data);
     });
 
-    updateCartItem();
+    common_script.updateCartItem();
 }
 
 function createCategoryContainer(data) {
-    let categoryTemplate = document.getElementById("categoryTemplates").innerHTML;
-    let compiledTemplate = Handlebars.compile(categoryTemplate);
-    let generatedHtml = compiledTemplate(data);
-
-    let categoryContainer = document.getElementById("category_container");
-    categoryContainer.innerHTML = generatedHtml;
+    common_script.render("categoryTemplates", "category_container", data);
 }
 
 function createSlideshowDots(data) {
-    let categoryTemplate = document.getElementById("slideshow-row__dotTemplates").innerHTML;
-    let compiledTemplate = Handlebars.compile(categoryTemplate);
-    let generatedHtml = compiledTemplate(data);
-
-    let categoryContainer = document.getElementById("slideshow-row__dot");
-    categoryContainer.innerHTML += generatedHtml;
+    common_script.render("slideshow-row__dotTemplates", "slideshow-row__dot", data);
 }
 
 function createSlideshow(data) {
-    let slideshowTemplates = document.getElementById("slideshowTemplates").innerHTML;
-    let slideshowCompiledTemplate = Handlebars.compile(slideshowTemplates);
-    let generatedHtml = slideshowCompiledTemplate(data);
-
-    let categoryContainer = document.getElementById("slideshow");
-    categoryContainer.innerHTML += generatedHtml;
-
+    common_script.render("slideshowTemplates", "slideshow", data);
 
     (function () {
         carousal(
@@ -50,7 +30,7 @@ function createSlideshow(data) {
             document.getElementsByClassName('dot'),
             document.getElementById('prev'),
             document.getElementById('next')
-        ).init();
+        ).start();
     })();
 
     let elem = document.getElementById("next");
