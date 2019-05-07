@@ -5,10 +5,10 @@ let common_script = {
         let generatedHtml = compiledTemplate(data);
 
         let showcase = document.getElementById(container);
-        if(operator == "append"){
+        if (operator == "append") {
             showcase.innerHTML += generatedHtml;
         }
-        if(operator == "remove"){
+        if (operator == "remove") {
             showcase.innerHTML = generatedHtml;
         }
     },
