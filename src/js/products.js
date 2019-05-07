@@ -65,7 +65,7 @@ window.onload = function () {
                 productRender.render(product_nav_values[i].value);
             }, false);
         }
-    },0);
+    },100);
 
 
 

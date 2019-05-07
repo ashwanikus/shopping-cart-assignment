@@ -53,9 +53,9 @@
                     <div class="detail_wrap">
                         <h5>{{name}}</h5>
                         <div>
-                            <button class="btn--default" onclick="changeQuantity('{{id}}', 'dec', '{{@index}}')">&minus;</button>
+                            <button class="btn--default" onclick="cartEngine.changeQuantity('{{id}}', 'dec', '{{@index}}')">&minus;</button>
                             <input type="text" value="{{count}}" id="item{{@index}}" class="prod_quantity">
-                            <button class="btn--default" onclick="changeQuantity('{{id}}', 'inc', '{{@index}}')">&plus;</button>
+                            <button class="btn--default" onclick="cartEngine.changeQuantity('{{id}}', 'inc', '{{@index}}')">&plus;</button>
                             <span class="price" id="price{{@index}}">Rs.{{price}}</span>
                             <span class="total_price" id="total_price{{@index}}">Rs.{{multiply price count}}</span>
                         </div>
@@ -71,8 +71,9 @@
     <script src="vendor/handlebars-v4.1.1.js"></script>
     <script src="js/handlebars_helper.js"></script>
     <script src="js/api_request.js"></script>
-    <script src="js/cart.js"></script>
     <script src="js/common.js"></script>
+    <script src="js/cart.js"></script>
+    
 </body>
 
 </html>
