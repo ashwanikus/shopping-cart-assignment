@@ -1,6 +1,6 @@
 let carousal = function (slides, dots, prev, next) {
     console.log(slides, dots, prev, next);
-    
+
     let slideIndex = 1;
     function plusSlides(n) {
         showSlides(slideIndex += n);
@@ -33,11 +33,11 @@ let carousal = function (slides, dots, prev, next) {
             next.addEventListener('click', function () {
                 plusSlides(1);
             });
-            [].forEach.call(dots, function (element, index) {
-                element.addEventListener('click', function () {
-                    currentSlide(index + 1);
-                });
-            });
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].addEventListener("click", function () {
+                    currentSlide(i + 1);
+                }, false);
+            }
         }
     };
 }
