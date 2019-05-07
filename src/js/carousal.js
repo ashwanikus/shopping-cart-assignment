@@ -1,6 +1,4 @@
 let carousal = function (slides, dots, prev, next) {
-    console.log(slides, dots, prev, next);
-
     let slideIndex = 1;
     function plusSlides(n) {
         showSlides(slideIndex += n);

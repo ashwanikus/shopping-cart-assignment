@@ -2,7 +2,7 @@ let homeContent = {
     createCategoryContainer: function (data) {
         common_script.render("categoryTemplates", "category_container", data, "remove");
     },
-    createSlideshowDots: function (data) { 
+    createSlideshowDots: function (data) {
         common_script.render("slideshow-row__dotTemplates", "slideshow-row__dot", data, "remove");
     },
     createSlideshow: function (data) {
@@ -20,7 +20,7 @@ let homeContent = {
         let elem = document.getElementById("next");
         setInterval(function () {
             elem.click();
-        }, 10000);
+        }, timeout_int);
     }
 }
 

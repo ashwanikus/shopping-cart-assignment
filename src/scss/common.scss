@@ -170,6 +170,37 @@ header {
   }
 }
 
+.nav_btn__hamburger {
+  position: absolute;
+  width: 40px;
+  height: 4px;
+  border-radius: 4px;
+  background-color: $pink-btn;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &:after {
+    content: "";
+    height: 4px;
+    width: 40px;
+    display: block;
+    position: absolute;
+    top: 10px;
+    background-color: inherit;
+    border-radius: 4px;
+  }
+  &:before {
+    content: "";
+    height: 4px;
+    width: 40px;
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    background-color: inherit;
+    border-radius: 4px;
+  }
+}
+
 .cart_btn {
   padding-right: 15px;
   a {
@@ -235,7 +266,6 @@ header {
   position: relative;
 }
 
-
 #hamberger:checked ~ .nav_link {
   width: 300px;
   right: 0;
@@ -296,7 +326,7 @@ header {
         font-weight: 300;
       }
     }
-    li:first-child{
+    li:first-child {
       padding-right: 15px;
     }
   }
@@ -317,7 +347,7 @@ header {
     a {
       text-decoration: none;
       color: #000;
-      padding:19px 25px 19px 56px;
+      padding: 19px 25px 19px 56px;
       background-color: #eee;
       line-height: 1;
       position: relative;
@@ -342,7 +372,7 @@ header {
       }
       span {
         display: inline-block;
-        font-size:16px;
+        font-size: 16px;
       }
     }
   }

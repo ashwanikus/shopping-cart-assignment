@@ -15,22 +15,12 @@ let productsEngine = {
     createProductsContainer: function (data) {
         common_script.render("productListingTemplates", "product_listing", data, "remove");
     },
-    // --------------------------------------------- //
-    // end products filter on product listing
-    // --------------------------------------------- //
-
-    // --------------------------------------------- //
-    // add to cart on product listing
-    // --------------------------------------------- //
     addToCart: function (id) {
         let productData = api_request.get_endpoint("addTocart/" + id);
         productData.then(function (data) {
             window.location.href = "/cart.html";
         });
     }
-    // --------------------------------------------- //
-    // end add to cart on product listing
-    // --------------------------------------------- //
 };
 
 let productRender = {
