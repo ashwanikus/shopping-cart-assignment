@@ -1,61 +1,81 @@
 @import "color";
 
-.cart_Box {
-  position: relative;
-  max-width: 770px;
-  width: 100%;
-  margin: 0px auto;
-  background-color: $l_light_grey;
-  padding: 30px 0px 0;
-
-  h3 {
-    font-size: 21px;
-    border-top: $whitish_grey;
-    padding: 14px 25px;
-
-    background-color: $white;
-
-    span {
-      font-size: 20px;
-      font-weight: 300;
-      margin-left: 5px;
-    }
-  }
-
-  ul,
-  li {
+.cart {
+  ul,li{
     display: block;
   }
-
-  .items {
-    background-color: $white;
-    padding: 10px;
-    display: table;
+  &__box {
+    position: relative;
+    max-width: 770px;
     width: 100%;
+    margin: 0px auto;
+    background-color: $l_light_grey;
+    padding: 30px 0px 0;
+    h3 {
+      font-size: 26px;
+        background-color: $black;
+        color: $white;
+        padding: 26px 30px;
 
+      span {
+        font-size: 20px;
+        font-weight: 300;
+        margin-left: 5px;
+      }
+    }
+    .full_width {
+      width: 100%;
+    }
+  }
+  &__badge {
+    background-color: $white;
+    width: calc(100% - 20px);
+    margin: 15px auto;
+    padding: 15px;
+    border-radius: 4px;
+    display: table;
     & > div {
       display: table-cell;
       vertical-align: middle;
+
+      &:first-child {
+        width: 120px;
+      }
+
+      &:last-child {
+        width: calc(100% - 120px);
+      }
     }
 
-    .img_wrap {
-      width: 95px;
-      max-width: 95px;
-    }
-
-    .detail_wrap {
-      width: calc(100% - 95px);
-      padding-left: 10px;
+    p {
+      padding-left: 20px;
     }
   }
+}
 
-  h5 {
-    font-weight: bold;
-    font-size: 18px;
+.cart-items {
+  background-color: $white;
+  padding: 10px 36px;
+  display: table;
+  width: 100%;
+
+  & > div {
+    display: table-cell;
+    vertical-align: middle;
   }
-
-  .detail_wrap {
+  &__img {
+    width: 95px;
+    max-width: 95px;
+  }
+  &__detail {
+    width: calc(100% - 95px);
+    padding-left: 10px;
     font-weight: 600;
+    h5 {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
 
     button {
       border-radius: 4px;
@@ -74,7 +94,6 @@
       text-align: center;
       width: 45px;
     }
-
     .price {
       position: relative;
       margin-left: 10px;
@@ -104,122 +123,53 @@
         top: 6px;
       }
     }
-
     .total_price {
       float: right;
     }
-  }
-
-  .batch {
-    background-color: $white;
-    width: calc(100% - 20px);
-    margin: 15px auto;
-    padding: 15px;
-    border-radius: 4px;
-    display: table;
-
-    // img {
-    //   width: 100px;
-    // }
-    & > div {
-      display: table-cell;
-      vertical-align: middle;
-
-      &:first-child {
-        width: 120px;
-      }
-
-      &:last-child {
-        width: calc(100% - 120px);
+    .price {
+      &:after {
+        top: 9px;
       }
     }
 
-    p {
-      padding-left: 20px;
-    }
-  }
-
-  .checkout {
-    background-color: $white;
-    padding: 15px 10px;
-    margin-top: 300px;
-
-    p {
-      text-align: center;
-      margin-bottom: 15px;
+    span {
       font-size: 20px;
     }
-
-    .btn--default {
-      text-align: left;
-      border-radius: 4px;
-      font-weight: 600;
-      font-size: 22px;
-
-      span {
-        float: right;
-        position: relative;
-
-        &:after {
-          content: "";
-          width: 8px;
-          height: 8px;
-          border-right: 2px solid $white;
-          border-top: 2px solid $white;
-          display: inline-block;
-          transform: rotate(45deg);
-          margin-left: 9px;
-        }
-      }
-    }
-  }
-
-  .full_width {
-    width: 100%;
   }
 }
+.checkout {
+  background-color: $white;
+  padding: 15px 10px;
+  margin-top: 300px;
 
-.onhover_Cart {
-  display: block;
+  p {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
 
-  .cart_Box {
-    padding: 0px 0;
+  .btn--default {
+    text-align: left;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 22px;
 
-    h3 {
-      font-size: 26px;
-      background-color: $black;
-      color: $white;
-      padding: 26px 30px;
-    }
+    span {
+      float: right;
+      position: relative;
 
-    h5 {
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    .items {
-      padding: 10px 36px;
-    }
-
-    .detail_wrap {
-      .price {
-        &:after {
-          top: 9px;
-        }
-      }
-
-      span {
-        font-size: 20px;
-      }
-    }
-
-    .batch {
-      // img {
-      //   width: 130px;
-      // }
-      p {
-        padding-left: 20px;
+      &:after {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-right: 2px solid $white;
+        border-top: 2px solid $white;
+        display: inline-block;
+        transform: rotate(45deg);
+        margin-left: 9px;
       }
     }
   }
 }
+
+

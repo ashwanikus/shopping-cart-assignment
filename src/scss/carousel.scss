@@ -28,6 +28,7 @@
   }
   
   &__prev {
+    z-index: 1;
     background-color: $trans_grey;
     cursor: pointer;
     position: absolute;
@@ -47,6 +48,7 @@
     }
   }
   &__next {
+    z-index: 1;
     background-color: $trans_grey;
     cursor: pointer;
     position: absolute;

@@ -52,11 +52,11 @@ const hbs = {
     cart_items: `{{#if item_in_cart}}
                     {{#each item_in_cart}}
                     <li tabindex="0">
-                        <div class="items flex_box">
-                            <div class="img_wrap">
+                        <div class="cart-items">
+                            <div class="cart-items__img">
                                 <img src="{{imageURL}}" alt="{{name}}">
                             </div>
-                            <div class="detail_wrap">
+                            <div class="cart-items__detail">
                                 <h5>{{name}}</h5>
                                 <div>
                                     <button class="btn--default" onclick="cartEngine.changeQuantity('{{id}}', 'dec', '{{@index}}')">&minus;</button>
@@ -70,6 +70,6 @@ const hbs = {
                     </li>
                     {{/each}}
                 {{else}}
-                    <li><div class="items flex_box">No item in carts...</div></li>
+                    <li><div class="items">No item in carts...</div></li>
                 {{/if}}`
 };

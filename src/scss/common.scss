@@ -315,23 +315,28 @@ header {
       }
     }
   }
-  .align_left {
-    padding-left: 133px;
-    padding-top: 52px;
-  }
-  .align_right {
-    float: right;
-    li {
-      padding-right: 0px;
-      a {
-        font-size: 14px;
-        font-weight: 300;
+
+  .nav_link {
+    &__primary {
+      padding-left: 133px;
+      padding-top: 52px;
+    }
+    
+    &__secondary {
+      float: right;
+      li {
+        padding-right: 0px;
+        a {
+          font-size: 14px;
+          font-weight: 300;
+        }
+      }
+      li:first-child {
+        padding-right: 15px;
       }
     }
-    li:first-child {
-      padding-right: 15px;
-    }
   }
+
   header {
     nav {
       & > div {

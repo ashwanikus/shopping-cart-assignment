@@ -1,28 +1,29 @@
 .product_section {
   padding-top: 20px;
 }
-.product-main{
+.product-main {
   &__list {
     padding-top: 20px;
   }
-}
-.product-listing {
-  .items {
-    width: 100%;
-    border-bottom: 1px dashed #ccc;
-    padding-bottom: 10px;
-    padding: 0 12px 10px;
-    background-color: #fff;
-    position: relative;
-    margin-bottom: 30px;
-    h3 {
-      height: 100px;
-      font-size: 20px;
-      font-weight: 700;
+  &__listing {
+    .items {
+      width: 100%;
+      border-bottom: 1px dashed #ccc;
+      padding-bottom: 10px;
+      padding: 0 12px 10px;
+      background-color: #fff;
+      position: relative;
       margin-bottom: 30px;
+      h3 {
+        height: 100px;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 30px;
+      }
     }
   }
 }
+
 .product_Details {
   display: flex;
   flex-wrap: wrap;
@@ -56,7 +57,7 @@
   }
 }
 
-.product-main{
+.product-main {
   &__sidenav {
     a {
       padding: 11px 30px;
@@ -66,7 +67,7 @@
       color: #000000;
       display: block;
     }
-  
+
     a:hover {
       cursor: pointer;
       color: #000000;
@@ -137,53 +138,51 @@
 
 @media only screen and (min-width: 480px) {
   .product-main {
-    &__list {
-      .product-listing {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        margin-bottom: 50px;
-        padding-left: 15px;
+    &__listing {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+      padding-left: 15px;
 
-        .items {
-          width: 49%;
-          margin-right: 1%;
-          &:after {
-            content: "";
-            position: absolute;
-            right: -5px;
-            top: 50%;
-            -webkit-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-            width: 1px;
-            height: 65%;
-            -webkit-box-shadow: 0 5px 3px 2px #f9f9f9;
-            box-shadow: 0 5px 3px 2px #f9f9f9;
-            background-color: #f9f9f9;
-            border-radius: 50% 50% / 20px 20px;
-          }
+      .items {
+        width: 49%;
+        margin-right: 1%;
+        &:after {
+          content: "";
+          position: absolute;
+          right: -5px;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+          width: 1px;
+          height: 65%;
+          -webkit-box-shadow: 0 5px 3px 2px #f9f9f9;
+          box-shadow: 0 5px 3px 2px #f9f9f9;
+          background-color: #f9f9f9;
+          border-radius: 50% 50% / 20px 20px;
+        }
 
-          h3 {
-            height: 100px;
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 30px;
-          }
+        h3 {
+          height: 100px;
+          font-size: 20px;
+          font-weight: 700;
+          margin-bottom: 30px;
+        }
 
-          p {
-            background-color: #f0f0f0;
-            font-weight: 600;
-            max-width: 100%;
-            font-size: 14px;
-            padding: 5px;
-            height: 90px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: inline-block;
-          }
+        p {
+          background-color: #f0f0f0;
+          font-weight: 600;
+          max-width: 100%;
+          font-size: 14px;
+          padding: 5px;
+          height: 90px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: inline-block;
         }
       }
     }
@@ -217,12 +216,10 @@
 
 @media only screen and (min-width: 768px) {
   .product-main {
-    &__list {
-      .product-listing {
-        .items {
-          width: 49%;
-          margin-right: 1%;
-        }
+    &__listing {
+      .items {
+        width: 49%;
+        margin-right: 1%;
       }
     }
   }
@@ -253,11 +250,9 @@
 
 @media only screen and (min-width: 1024px) {
   .product-main {
-    &__list {
-      .product-listing {
-        .items {
-          width: 24%;
-        }
+    &__listing {
+      .items {
+        width: 24%;
       }
     }
   }
