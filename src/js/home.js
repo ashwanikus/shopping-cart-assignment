@@ -1,12 +1,12 @@
 let homeContent = {
     createCategoryContainer: function (data) {
-        common_script.render("categoryTemplates", "category_container", data, "remove");
+        common_script.render("category", "category_container", data, "remove");
     },
     createSlideshowDots: function (data) {
-        common_script.render("slideshow-row__dotTemplates", "slideshow-row__dot", data, "remove");
+        common_script.render("dots", "slideshow-row__dot", data, "remove");
     },
     createSlideshow: function (data) {
-        common_script.render("slideshowTemplates", "slideshow", data, "append");
+        common_script.render("banners", "slideshow", data, "append");
 
         (function () {
             carousal(

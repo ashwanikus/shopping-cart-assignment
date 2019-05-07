@@ -25,16 +25,14 @@
                                 <img src="/static/images/lowest-price.png" alt="Loweset price image" tabindex="0">
                             </div>
                             <div>
-                                <p tabindex="0">You won't find cheaper
-                                    anywhere</p>
+                                <p tabindex="0">You won't find cheaper anywhere</p>
                             </div>
                         </div>
                     </div>
                     <div class="checkout">
-                        <p tabindex="0">Promo code can be applied on
-                            payment page</p>
-                        <button class="btn--default full_width">Proceed
-                            to checkout <span>Rs. <i id="checkoutAmount"></i></span></button>
+                        <p tabindex="0">Promo code can be applied on payment page</p>
+                        <button class="btn--default full_width">Proceed to checkout <span>Rs. <i
+                                    id="checkoutAmount"></i></span></button>
                     </div>
 
                 </div>
@@ -42,38 +40,14 @@
         </div>
     </section>
 
-    <script type="text/x-handlebars-template" id="displaying_cart_itemsTemplates">
-        {{#if item_in_cart}}
-            {{#each item_in_cart}}
-            <li tabindex="0">
-                <div class="items flex_box">
-                    <div class="img_wrap">
-                        <img src="{{imageURL}}" alt="{{name}}">
-                    </div>
-                    <div class="detail_wrap">
-                        <h5>{{name}}</h5>
-                        <div>
-                            <button class="btn--default" onclick="cartEngine.changeQuantity('{{id}}', 'dec', '{{@index}}')">&minus;</button>
-                            <input type="text" value="{{count}}" id="item{{@index}}" class="prod_quantity">
-                            <button class="btn--default" onclick="cartEngine.changeQuantity('{{id}}', 'inc', '{{@index}}')">&plus;</button>
-                            <span class="price" id="price{{@index}}">Rs.{{price}}</span>
-                            <span class="total_price" id="total_price{{@index}}">Rs.{{multiply price count}}</span>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            {{/each}}
-        {{else}}
-            <li><div class="items flex_box">No item in carts...</div></li>
-        {{/if}}
-    </script>
     <footer id="footer"></footer>
     <script src="vendor/handlebars-v4.1.1.js"></script>
     <script src="js/handlebars_helper.js"></script>
+    <script src="js/handlebars_templates.js"></script>
     <script src="js/api_request.js"></script>
     <script src="js/common.js"></script>
     <script src="js/cart.js"></script>
-    
+
 </body>
 
 </html>

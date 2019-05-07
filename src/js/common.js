@@ -1,6 +1,6 @@
 let common_script = {
-    render: function (templateid, container, data, operator) {
-        let templates = document.getElementById(templateid).innerHTML;
+    render: function (templateid, container, data, operator) {        
+        let templates = hbs[templateid];
         let compiledTemplate = Handlebars.compile(templates);
         let generatedHtml = compiledTemplate(data);
 

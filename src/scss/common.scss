@@ -1,4 +1,4 @@
-$pink-btn: #bf2957;
+@import "color";
 
 * {
   margin: 0;
@@ -9,7 +9,7 @@ body {
   overflow-x: hidden;
 }
 html {
-  background-color: white;
+  background-color: $white;
   color: black;
   font-family: "Dosis", "Arial", sans-serif;
   font-weight: 300;
@@ -43,7 +43,7 @@ a {
 
 section {
   padding: 30px 0;
-  background: #fff;
+  background: $white;
 }
 
 ul,
@@ -78,10 +78,10 @@ li {
 }
 
 .btn--default {
-  color: #fff;
+  color: $white;
   font-size: 14px;
   text-decoration: none;
-  background-color: $pink-btn;
+  background-color: $theme_color;
   padding: 13px 10px;
   transition: 0.5s;
   cursor: pointer;
@@ -94,7 +94,7 @@ li {
 .btn--default:focus {
   outline: 0;
   outline-offset: 0;
-  background-color: #da1a55;
+  background-color: $theme_color;
 }
 
 // common css
@@ -118,7 +118,7 @@ h3 {
 footer {
   padding: 10px 0;
   width: 100%;
-  background-color: #eaeaea;
+  background-color: $l_light_grey;
   color: black;
   font-weight: 600;
   font-size: 77%;
@@ -129,25 +129,25 @@ footer {
 
 header {
   padding: 8px 0 0px;
-  border-bottom: 1px solid #ededed;
-  box-shadow: 0 2px 4px 0 #ededed;
+  border-bottom: 1px solid $l_light_grey;
+  box-shadow: 0 2px 4px 0 $l_light_grey;
   position: relative;
   z-index: 9;
-  nav {
-    display: flex;
-    width: 100%;
-    position: relative;
+  .row {
     align-items: center;
+  }
+  nav {
+    width: 100%;
 
     & > a {
       width: 160px;
     }
     & > div {
-      width: calc(100% - 160px);
       display: flex;
       align-items: center;
       flex-direction: row-reverse;
       padding-bottom: 0;
+      width: 100%;
     }
     input {
       display: none;
@@ -162,7 +162,7 @@ header {
           font-weight: 600;
           padding: 7px 0;
           display: block;
-          color: #70676a;
+          color: $grey;
           transition: 0.5s;
         }
       }
@@ -175,7 +175,7 @@ header {
   width: 40px;
   height: 4px;
   border-radius: 4px;
-  background-color: $pink-btn;
+  background-color: $theme_color;
   top: 50%;
   transform: translateY(-50%);
 
@@ -207,7 +207,7 @@ header {
     position: relative;
     i {
       svg {
-        fill: #bb2855;
+        fill: $theme_color;
         width: 30px;
         display: inline-block;
       }
@@ -215,11 +215,11 @@ header {
         display: block;
         position: absolute;
         font-style: initial;
-        color: #50dae2;
+        color: $f_blue;
         top: -4px;
         right: 0px;
         font-weight: bold;
-        background-color: #fff;
+        background-color: $white;
         height: 18px;
         width: 18px;
         border-radius: 50%;
@@ -239,7 +239,7 @@ header {
 }
 
 .nav_link {
-  background-color: #fff;
+  background-color: $white;
   overflow-y: auto;
   height: auto;
   position: absolute;
@@ -260,14 +260,16 @@ header {
   display: inline-block;
 }
 .center {
-  height: 64px;
-  width: 64px;
+  height: 40px;
+  width: 40px;
   cursor: pointer;
   position: relative;
+  margin-right: 15px;
 }
 
 #hamberger:checked ~ .nav_link {
   width: 300px;
+  border: 1px solid $l_light_grey;
   right: 0;
 }
 
@@ -303,7 +305,7 @@ header {
           padding-right: 29px;
           display: inline-block;
           a {
-            color: #70676a;
+            color: $d_trans_grey;
             font-weight: 600;
             text-decoration: none;
             font-size: 16px;
@@ -346,9 +348,9 @@ header {
     z-index: 5;
     a {
       text-decoration: none;
-      color: #000;
+      color: $black;
       padding: 19px 25px 19px 56px;
-      background-color: #eee;
+      background-color: $l_light_grey;
       line-height: 1;
       position: relative;
       i {
@@ -361,7 +363,7 @@ header {
         span {
           position: static;
           display: none;
-          color: #222222;
+          color: $light_black;
           background-color: transparent;
           height: auto;
           width: auto;
@@ -381,11 +383,7 @@ header {
 @media only screen and (min-width: 1024px) {
   header {
     nav {
-      .logo {
-        width: 190px;
-      }
       & > div {
-        flex: 0 1 calc(100% - 190px);
         padding-bottom: 24px;
       }
     }

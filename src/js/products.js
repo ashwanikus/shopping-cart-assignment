@@ -1,6 +1,6 @@
 let productsEngine = {
     createProdCategoryContainer: function (data) {
-        common_script.render("productMenuTemplates", "productMenu", data, "remove");
+        common_script.render("productsMenu", "productMenu", data, "remove");
 
         let header = document.getElementById("productMenu");
         let btns = header.getElementsByClassName("links");
@@ -13,7 +13,7 @@ let productsEngine = {
         }
     },
     createProductsContainer: function (data) {
-        common_script.render("productListingTemplates", "product_listing", data, "remove");
+        common_script.render("productListing", "product_listing", data, "remove");
     },
     addToCart: function (id) {
         let productData = api_request.get_endpoint("addTocart/" + id);
@@ -42,7 +42,6 @@ window.onload = function () {
 
     setTimeout(function () {
         for (let i = 0; i < add_item_cart.length; i++) {
-            console.log(add_item_cart[i]);
             add_item_cart[i].addEventListener("click", function () {
                 console.log(add_item_id[i].value, i);
                 productsEngine.addToCart(add_item_id[i].value);
@@ -50,12 +49,11 @@ window.onload = function () {
         }
 
         for (let i = 0; i < product_nav.length; i++) {
-            console.log(product_nav[i]);
             product_nav[i].addEventListener("click", function () {
                 productRender.render(product_nav_values[i].value);
             }, false);
         }
-    },100);
+    }, 100);
 
 
 

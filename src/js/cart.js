@@ -1,6 +1,6 @@
 let cartRender = {
     itemListsRender: function (data) {
-        common_script.render("displaying_cart_itemsTemplates", "displaying_cart_items", data, "remove");
+        common_script.render("cart_items", "displaying_cart_items", data, "remove");
     }
 };
 let cartEngine = {

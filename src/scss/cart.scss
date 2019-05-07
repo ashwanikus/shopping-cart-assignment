@@ -1,17 +1,19 @@
+@import "color";
+
 .cart_Box {
   position: relative;
   max-width: 770px;
   width: 100%;
   margin: 0px auto;
-  background-color: #eee;
+  background-color: $l_light_grey;
   padding: 30px 0px 0;
 
   h3 {
     font-size: 21px;
-    border-top: #e6e6e6;
+    border-top: $whitish_grey;
     padding: 14px 25px;
 
-    background-color: #fff;
+    background-color: $white;
 
     span {
       font-size: 20px;
@@ -26,7 +28,7 @@
   }
 
   .items {
-    background-color: #fff;
+    background-color: $white;
     padding: 10px;
     display: table;
     width: 100%;
@@ -82,7 +84,7 @@
       &:before {
         content: "";
         position: absolute;
-        background-color: #000;
+        background-color: $black;
         left: 0;
         top: 50%;
         transform: translateY(-50%);
@@ -109,7 +111,7 @@
   }
 
   .batch {
-    background-color: #fff;
+    background-color: $white;
     width: calc(100% - 20px);
     margin: 15px auto;
     padding: 15px;
@@ -138,7 +140,7 @@
   }
 
   .checkout {
-    background-color: #fff;
+    background-color: $white;
     padding: 15px 10px;
     margin-top: 300px;
 
@@ -162,8 +164,8 @@
           content: "";
           width: 8px;
           height: 8px;
-          border-right: 2px solid #fff;
-          border-top: 2px solid #fff;
+          border-right: 2px solid $white;
+          border-top: 2px solid $white;
           display: inline-block;
           transform: rotate(45deg);
           margin-left: 9px;
@@ -177,7 +179,6 @@
   }
 }
 
-
 .onhover_Cart {
   display: block;
 
@@ -186,8 +187,8 @@
 
     h3 {
       font-size: 26px;
-      background-color: #000;
-      color: #fff;
+      background-color: $black;
+      color: $white;
       padding: 26px 30px;
     }
 
