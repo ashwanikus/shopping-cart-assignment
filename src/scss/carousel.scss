@@ -1,17 +1,11 @@
-@import "color";
-
-.mySlides {
-  display: none;
-
-  img {
-    width: 100%;
-  }
-}
+@import "variable";
+@import "mixin";
 
 /* Slideshow container */
 .slideshow {
-  &__row {
+  &__box {
     display: inline !important;
+    @include row;
   }
 
   &__container {
@@ -19,24 +13,29 @@
     position: relative;
     margin: auto;
   }
-}
 
-/* Next & previous buttons */
-.slideshow {
+  &--fade {
+    display: none;
+
+    img {
+      width: 100%;
+    }
+  }
+
   &__dots {
     text-align: center;
   }
-  
+
   &__prev {
     z-index: 1;
-    background-color: $trans_grey;
+    background-color: $border_color_transparent;
     cursor: pointer;
     position: absolute;
     top: 50%;
     width: auto;
     padding: 10px;
     margin-top: -22px;
-    color: $white;
+    color: $secondary_color;
     font-weight: bold;
     font-size: 12px;
     transition: 0.6s ease;
@@ -44,19 +43,19 @@
     user-select: none;
     /* On hover, add a black background color with a little bit see-through */
     &:hover {
-      background-color: $trans_black;
+      background-color: $primary_color_transparent;
     }
   }
   &__next {
     z-index: 1;
-    background-color: $trans_grey;
+    background-color: $border_color_transparent;
     cursor: pointer;
     position: absolute;
     top: 50%;
     width: auto;
     padding: 10px;
     margin-top: -22px;
-    color: $white;
+    color: $secondary_color;
     font-weight: bold;
     font-size: 12px;
     transition: 0.6s ease;
@@ -67,29 +66,17 @@
     border-radius: 3px 0 0 3px;
     /* On hover, add a black background color with a little bit see-through */
     &:hover {
-      background-color: $trans_black;
+      background-color: $primary_color_transparent;
     }
   }
 }
 
-/* Caption text */
-.text {
-  color: $mix_white;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: $mix_white;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+.category {
+  &__container {
+    &--box {
+      @include row;
+    }
+  }
 }
 
 /* The dots/bullets/indicators */
@@ -98,7 +85,7 @@
   height: 5px;
   width: 5px;
   margin: 0 10px;
-  background-color: $light_grey;
+  background-color: $border_color_secondary;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
@@ -106,8 +93,8 @@
 
 .active,
 .dot:hover {
-  background-color: $grey;
-  color: $white !important;
+  background-color: $border_color;
+  color: $secondary_color !important;
 }
 
 /* Fading animation */

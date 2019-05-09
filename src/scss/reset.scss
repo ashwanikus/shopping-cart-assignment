@@ -1,0 +1,73 @@
+@import "variable";
+
+* {
+  margin: 0;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  overflow-x: hidden;
+}
+html {
+  background-color: $secondary_color;
+  color: black;
+  font-family: "Dosis", "Arial", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+}
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+a:active,
+a:hover.a:focus,
+button:active,
+button:hover,
+button:focus,
+a,
+button {
+  outline: none;
+  outline-offset: 0;
+  border: none;
+}
+
+:focus {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+section {
+  padding: 30px 0;
+  background: $secondary_color;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+p {
+  font-size: 16px;
+}
+
+ol,
+ul,
+li {
+  display: inline-block;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}

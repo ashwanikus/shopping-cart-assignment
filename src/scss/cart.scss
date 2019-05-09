@@ -1,21 +1,24 @@
-@import "color";
+@import "variable";
+@import "mixin";
 
 .cart {
-  ul,li{
+  @include row;
+  ul,
+  li {
     display: block;
   }
   &__box {
     position: relative;
-    max-width: 770px;
+    max-width: 900px;
     width: 100%;
     margin: 0px auto;
-    background-color: $l_light_grey;
+    background-color: $border_color_primary;
     padding: 30px 0px 0;
     h3 {
       font-size: 26px;
-        background-color: $black;
-        color: $white;
-        padding: 26px 30px;
+      background-color: $primary_color;
+      color: $secondary_color;
+      padding: 26px 30px;
 
       span {
         font-size: 20px;
@@ -28,7 +31,7 @@
     }
   }
   &__badge {
-    background-color: $white;
+    background-color: $secondary_color;
     width: calc(100% - 20px);
     margin: 15px auto;
     padding: 15px;
@@ -54,7 +57,7 @@
 }
 
 .cart-items {
-  background-color: $white;
+  background-color: $secondary_color;
   padding: 10px 36px;
   display: table;
   width: 100%;
@@ -103,7 +106,7 @@
       &:before {
         content: "";
         position: absolute;
-        background-color: $black;
+        background-color: $primary_color;
         left: 0;
         top: 50%;
         transform: translateY(-50%);
@@ -138,7 +141,7 @@
   }
 }
 .checkout {
-  background-color: $white;
+  background-color: $secondary_color;
   padding: 15px 10px;
   margin-top: 300px;
 
@@ -162,8 +165,8 @@
         content: "";
         width: 8px;
         height: 8px;
-        border-right: 2px solid $white;
-        border-top: 2px solid $white;
+        border-right: 2px solid $secondary_color;
+        border-top: 2px solid $secondary_color;
         display: inline-block;
         transform: rotate(45deg);
         margin-left: 9px;
@@ -171,5 +174,3 @@
     }
   }
 }
-
-

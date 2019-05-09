@@ -36,6 +36,9 @@ let carousal = function (slides, dots, prev, next) {
                     currentSlide(i + 1);
                 }, false);
             }
+        },
+        animate: function () {
+            plusSlides(1);
         }
     };
 }

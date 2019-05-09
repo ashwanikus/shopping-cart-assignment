@@ -8,18 +8,17 @@ let homeContent = {
     createSlideshow: function (data) {
         common_script.render("banners", "slideshow", data, "append");
 
-        (function () {
-            carousal(
-                document.getElementsByClassName('mySlides'),
-                document.getElementsByClassName('dot'),
-                document.getElementById('prev'),
-                document.getElementById('next')
-            ).start();
-        })();
+        let slider = carousal(
+            document.getElementsByClassName('slideshow__container--fade'),
+            document.getElementsByClassName('dot'),
+            document.getElementById('prev'),
+            document.getElementById('next')
+        );
 
-        let elem = document.getElementById("next");
+        slider.start();
+        
         setInterval(function () {
-            elem.click();
+            slider.animate();
         }, timeout_int);
     }
 }

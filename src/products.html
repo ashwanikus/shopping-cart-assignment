@@ -11,29 +11,26 @@
 </head>
 
 <body>
-    <header id="header"></header>
-    <div class="product_section">
-        <div class="row">
-            <div class="product-main">
-                <div class="product-main__sidenav">
+    <header class="header"></header>
+    <section class="products">
+        <div class="products__box">
+            <div class="products__boxmain">
+                <div class="products__boxmainsidenav">
                     <input type="checkbox" id="filter" />
-                    <label for="filter" class="carret">
-                        Fruits & Vegetables
-                    </label>
+                    <label for="filter" class="carret">Fruits & Vegetables</label>
                     <ul id="productMenu"></ul>
                 </div>
-                <div class="product-main__list">
-                    <div class="product-main__listing" id="product_listing">
-                    </div>
+                <div class="products__boxmainlist">
+                    <div class="products__boxmainlist--listing" id="product_listing"></div>
                 </div>
             </div>
         </div>
-    </div>
-    <footer id="footer"></footer>
+    </section>
+    <footer class="footer"></footer>
     <script src="vendor/handlebars-v4.1.1.js"></script>
     <script src="js/handlebars_helper.js"></script>
     <script src="js/handlebars_templates.js"></script>
-    <script src="js/api_request.js"></script>    
+    <script src="js/api_request.js"></script>
     <script src="js/common.js"></script>
     <script src="js/products.js"></script>
 

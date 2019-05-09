@@ -2,14 +2,14 @@ require("babel-runtime/regenerator");
 require("webpack-hot-middleware/client?reload=true");
 require('./favicon.ico');
 
-require("./scss/cart.scss");
-require("./scss/products.scss");
-require("./scss/login.scss");
-require("./scss/carousel.scss");
-require("./scss/query.scss");
-require("./scss/home.scss");
+require("./scss/reset.scss");
 require("./scss/common.scss");
-
+require("./scss/home.scss");
+require("./scss/query.scss");
+require("./scss/carousel.scss");
+require("./scss/login.scss");
+require("./scss/products.scss");
+require("./scss/cart.scss");
 
 (function (header, footer) {
   let ajaxReq = new XMLHttpRequest();
@@ -28,6 +28,6 @@ require("./scss/common.scss");
   }
   ajaxReq.send();
 }(
-  document.getElementById("header"),
-  document.getElementById("footer")
+  document.getElementsByClassName("header")[0],
+  document.getElementsByClassName("footer")[0]
 ));

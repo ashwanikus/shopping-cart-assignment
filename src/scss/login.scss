@@ -1,7 +1,11 @@
+@import "variable";
+@import "mixin";
+
 .login {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  @include row;
 
   &__text {
     flex: 0 1 100%;

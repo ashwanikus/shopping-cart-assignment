@@ -3,8 +3,8 @@ const hbs = {
     <span class="dot"></span>
     {{/each}}`,
     category: `{{#each categories}}
-                <section>
-                    <div class="row align-center">
+                <section class="category__container">
+                    <div class="category__container--box">
                         <div class="category_img">
                             <img src="{{imageUrl}}" alt="{{name}}"/>
                         </div>
@@ -19,7 +19,7 @@ const hbs = {
                 </section>            
                 {{/each}}`,
     banners: `{{#each banners}}
-                <div class="mySlides fade">            
+                <div class="slideshow__container--fade">            
                     <img src="{{bannerImageUrl}}" alt="{{bannerImageAlt}}">
                 </div>
                 {{/each}}`,
@@ -37,7 +37,7 @@ const hbs = {
                     {{/ifFirstIndex}}
                 {{/each}}`,
     productListing: `{{#each products}}
-                        <div class="items">
+                        <div class="products__boxmainlist--listingitems">
                             <h3 title="{{name}}" tabindex="0">{{name}}</h3>
                             <div class="product_Details">
                                 <span><img src="{{imageURL}}" alt="{{name}}" srcset="" tabindex="0"></span>

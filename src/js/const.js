@@ -1,1 +1,1 @@
-const timeout_int = 10000;
+const timeout_int = 1000;
