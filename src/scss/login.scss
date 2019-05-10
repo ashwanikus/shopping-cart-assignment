@@ -19,15 +19,15 @@
   .btn--default {
     width: 100%;
   }
-}
 
-.firstname,
-.lastname,
-.confirm_password,
-.email,
-.password {
-  position: relative;
-  margin-bottom: 45px;
+  &__firstname,
+  &__lastname,
+  &__confirm_password,
+  &__email,
+  &__password {
+    position: relative;
+    margin-bottom: 45px;
+  }
 }
 
 /* LABEL ======================================= */

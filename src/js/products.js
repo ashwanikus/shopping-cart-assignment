@@ -2,7 +2,7 @@ let productsEngine = {
     createProdCategoryContainer: function (data) {
         common_script.render("productsMenu", "productMenu", data, "remove");
         let header = document.getElementById("productMenu");
-        let btns = header.getElementsByClassName("links");
+        let btns = header.getElementsByClassName("products__boxmainsidenav-links");
         for (let i = 0; i < btns.length; i++) {
             btns[i].addEventListener("click", function () {
                 let current = document.getElementsByClassName("active");
@@ -21,8 +21,8 @@ let productsEngine = {
         });
     },
     addlistner_for_buyNow: function () {
-        let add_item_cart = document.getElementsByClassName("add_items");
-        let add_item_id = document.getElementsByClassName("item_id");
+        let add_item_cart = document.getElementsByClassName("products__buy-now");
+        let add_item_id = document.getElementsByClassName("products__ID");
         setTimeout(function () {
             for (let i = 0; i < add_item_cart.length; i++) {
                 add_item_cart[i].addEventListener("click", function () {
@@ -45,8 +45,8 @@ let productRender = {
 
 
 window.onload = function () {
-    let product_nav = document.getElementsByClassName("links");
-    let product_nav_values = document.getElementsByClassName("links_input");
+    let product_nav = document.getElementsByClassName("products__boxmainsidenav-links");
+    let product_nav_values = document.getElementsByClassName("products__boxmainsidenav-inputs");
 
     setTimeout(function () {
         productsEngine.addlistner_for_buyNow();

@@ -16,6 +16,8 @@ let categories = require("../../json/categories/index.get.json");
 let banners = require("../../json/banners/index.get.json");
 let itemsInCart = [];
 
+let port = process.env.PORT || 8080;
+
 // parse application/x-www-form-urlencoded
 server.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
@@ -187,7 +189,7 @@ server.get('/partials_content', function (req, res) {
 });
 
 
-server.listen(8080, () => {
-    //console.log("Server is listening at port 8080");
+server.listen(port, () => {
+    console.log(`Server is listening at ${port}`);
 });
 

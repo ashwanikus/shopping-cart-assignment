@@ -7,6 +7,9 @@
   li {
     display: block;
   }
+  li {
+    margin-bottom: 15px;
+  }
   &__box {
     position: relative;
     max-width: 900px;
@@ -96,46 +99,46 @@
       text-align: center;
       width: 45px;
     }
-    .price {
-      position: relative;
-      margin-left: 10px;
-      padding-left: 20px;
-
-      &:after,
-      &:before {
-        content: "";
-        position: absolute;
-        background-color: $primary_color;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-
-      &:before {
-        height: 2px;
-        width: 10px;
-        transform: rotate(45deg);
-      }
-
-      &:after {
-        width: 2px;
-        height: 10px;
-        transform: rotate(45deg);
-        left: 4px;
-        top: 6px;
-      }
-    }
-    .total_price {
-      float: right;
-    }
-    .price {
-      &:after {
-        top: 9px;
-      }
-    }
 
     span {
       font-size: 20px;
+    }
+  }
+  &__price {
+    position: relative;
+    margin-left: 10px;
+    padding-left: 20px;
+
+    &:after,
+    &:before {
+      content: "";
+      position: absolute;
+      background-color: $primary_color;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:before {
+      height: 2px;
+      width: 10px;
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      width: 2px;
+      height: 10px;
+      transform: rotate(45deg);
+      left: 4px;
+      top: 6px;
+    }
+  }
+  &__totalPrice {
+    float: right;
+  }
+  &__price {
+    &:after {
+      top: 9px;
     }
   }
 }
@@ -157,37 +160,38 @@
     }
   }
 }
+.cart {
+  &__checkout {
+    background-color: $secondary_color;
+    padding: 15px 10px;
+    margin-top: 300px;
 
-.checkout {
-  background-color: $secondary_color;
-  padding: 15px 10px;
-  margin-top: 300px;
+    p {
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
 
-  p {
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 20px;
-  }
+    .btn--default {
+      text-align: left;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 22px;
 
-  .btn--default {
-    text-align: left;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 22px;
+      span {
+        float: right;
+        position: relative;
 
-    span {
-      float: right;
-      position: relative;
-
-      &:after {
-        content: "";
-        width: 8px;
-        height: 8px;
-        border-right: 2px solid $secondary_color;
-        border-top: 2px solid $secondary_color;
-        display: inline-block;
-        transform: rotate(45deg);
-        margin-left: 9px;
+        &:after {
+          content: "";
+          width: 8px;
+          height: 8px;
+          border-right: 2px solid $secondary_color;
+          border-top: 2px solid $secondary_color;
+          display: inline-block;
+          transform: rotate(45deg);
+          margin-left: 9px;
+        }
       }
     }
   }

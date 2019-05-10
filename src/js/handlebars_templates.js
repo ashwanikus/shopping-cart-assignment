@@ -3,12 +3,12 @@ const hbs = {
     <span class="slideshow__dots--inactive"></span>
     {{/each}}`,
     category: `{{#each categories}}
-                <section class="category__container">
-                    <div class="category__containerbox">
-                        <div class="category__containerboximg">
+                <section class="category">
+                    <div class="category__container">
+                        <div class="category__container_img">
                             <img src="{{imageUrl}}" alt="{{name}}"/>
                         </div>
-                        <div class="category__containerboxdesc">
+                        <div class="category__container_desc">
                             <h1 tabindex="0">{{name}}</h1>
                             <p tabindex="0">
                                 {{description}}
@@ -26,25 +26,25 @@ const hbs = {
     productsMenu: `{{#each categories}}
                     {{#ifFirstIndex @index}}
                         <li>
-                            <input type="hidden" class="links_input" id="links_input{{@index}}" value="{{id}}"/>
-                            <a class="links active" tabindex="0">{{name}}</a>
+                            <input type="hidden" class="products__boxmainsidenav-inputs" id="links_input{{@index}}" value="{{id}}"/>
+                            <a class="products__boxmainsidenav-links active" tabindex="0">{{name}}</a>
                         </li>
                     {{else}}
                         <li>
-                            <input type="hidden" class="links_input" id="links_input{{@index}}" value="{{id}}"/>
-                            <a class="links" tabindex="0">{{name}}</a>
+                            <input type="hidden" class="products__boxmainsidenav-inputs" id="links_input{{@index}}" value="{{id}}"/>
+                            <a class="products__boxmainsidenav-links" tabindex="0">{{name}}</a>
                         </li>
                     {{/ifFirstIndex}}
                 {{/each}}`,
     productListing: `{{#each products}}
-                        <div class="products__boxmainlist--listingitems">
+                        <div class="products__boxmainlist-contentitems">
                             <h1 title="{{name}}" tabindex="0">{{name}}</h1>
-                            <div class="product_Details">
+                            <div class="products__product-details">
                                 <span><img src="{{imageURL}}" alt="{{name}}" srcset="" tabindex="0"></span>
                                 <p title="{{description}}" tabindex="0">{{description}}</p>
-                                <input type="hidden" class="item_id" id="item_id{{@index}}" value="{{id}}" />
-                                <div class="price_tag">
-                                    <a class="btn--default add_items" tabindex="0">Buy Now <span>MRP Rs.{{price}}</span></a>
+                                <input type="hidden" class="products__ID" id="item_id{{@index}}" value="{{id}}" />
+                                <div class="products__price-tag">
+                                    <a class="btn--default products__buy-now" tabindex="0">Buy Now <span>MRP Rs.{{price}}</span></a>
                                 </div>
                             </div>
                         </div>
@@ -62,8 +62,8 @@ const hbs = {
                                     <button class="btn--default" onclick="cartEngine.changeQuantity('{{id}}', 'dec', '{{@index}}')">&minus;</button>
                                     <input type="text" value="{{count}}" id="item{{@index}}" class="prod_quantity">
                                     <button class="btn--default" onclick="cartEngine.changeQuantity('{{id}}', 'inc', '{{@index}}')">&plus;</button>
-                                    <span class="price" id="price{{@index}}">Rs.{{price}}</span>
-                                    <span class="total_price" id="total_price{{@index}}">Rs.{{multiply price count}}</span>
+                                    <span class="cart-items__price" id="price{{@index}}">Rs.{{price}}</span>
+                                    <span class="cart-items__totalPrice" id="total_price{{@index}}">Rs.{{multiply price count}}</span>
                                 </div>
                             </div>
                         </div>
