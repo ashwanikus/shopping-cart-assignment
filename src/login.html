@@ -12,27 +12,29 @@
 <body>
     <header class="header">
     </header>
-    <section>
-        <div class="login">
-            <div class="login__text" tabindex="0">
-                <h1>Login</h1>
-                <p>Get acces to your Order, Wishlists and Recommendations</p>
+    <main>
+        <section>
+            <div class="login">
+                <div class="login__text" tabindex="0">
+                    <h1>Login</h1>
+                    <p>Get acces to your Order, Wishlists and Recommendations</p>
+                </div>
+                <div class="login__form">
+                    <form autocomplete="off" method="POST">
+                        <div class="email">
+                            <input id="usermail" name="usermail" type="email" required>
+                            <label for="usermail">Email</label>
+                        </div>
+                        <div class="password">
+                            <input id="pwd" name="pwd" type="password" required>
+                            <label for="pwd">Password</label>
+                        </div>
+                        <button type="submit" class="btn btn--default">Login</button>
+                    </form>
+                </div>
             </div>
-            <div class="login__form">
-                <form autocomplete="off" method="POST">
-                    <div class="email">
-                        <input id="usermail" name="usermail" type="email" required>
-                        <label for="usermail">Email</label>
-                    </div>
-                    <div class="password">
-                        <input id="pwd" name="pwd" type="password" required>
-                        <label for="pwd">Password</label>
-                    </div>
-                    <button type="submit" class="btn btn--default">Login</button>
-                </form>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
     <footer class="footer"></footer>
     <script src="vendor/handlebars-v4.1.1.js"></script>
     <script src="js/handlebars_helper.js"></script>

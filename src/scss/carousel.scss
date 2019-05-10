@@ -24,6 +24,21 @@
 
   &__dots {
     text-align: center;
+    &--inactive {
+      cursor: pointer;
+      height: 5px;
+      width: 5px;
+      margin: 0 10px;
+      background-color: $border_color_primary2;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+      
+      &:hover {
+        background-color: $border_color;
+        color: $secondary_color !important;
+      }
+    }
   }
 
   &__prev {
@@ -46,6 +61,7 @@
       background-color: $primary_color_transparent;
     }
   }
+
   &__next {
     z-index: 1;
     background-color: $border_color_transparent;
@@ -69,32 +85,6 @@
       background-color: $primary_color_transparent;
     }
   }
-}
-
-.category {
-  &__container {
-    &--box {
-      @include row;
-    }
-  }
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 5px;
-  width: 5px;
-  margin: 0 10px;
-  background-color: $border_color_secondary;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active,
-.dot:hover {
-  background-color: $border_color;
-  color: $secondary_color !important;
 }
 
 /* Fading animation */

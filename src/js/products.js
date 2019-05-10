@@ -1,7 +1,6 @@
 let productsEngine = {
     createProdCategoryContainer: function (data) {
         common_script.render("productsMenu", "productMenu", data, "remove");
-
         let header = document.getElementById("productMenu");
         let btns = header.getElementsByClassName("links");
         for (let i = 0; i < btns.length; i++) {

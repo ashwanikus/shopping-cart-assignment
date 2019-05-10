@@ -3,21 +3,16 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
 const cssOutput = 'css/style.css';
 
 module.exports = {
     entry: [
-        "./src/js/app.js",
-        "./src/scss/cart.scss",
-        "./src/scss/products.scss",
-        "./src/scss/login.scss",
-        "./src/scss/carousel.scss",
-        "./src/scss/query.scss",
-        "./src/scss/home.scss"
+        "./src/app.js"
     ],
     mode: "production",
-    devServer:{
-        contentBase:'dist',
+    devServer: {
+        contentBase: 'dist',
         overlay: true
     },
     output: {
@@ -33,7 +28,12 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
-                    use: ['css-loader', 'sass-loader'],
+                    use: ['css-loader', {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => [autoprefixer()]
+                        }
+                    }, 'sass-loader'],
                     fallback: 'style-loader'
                 })
             },
@@ -47,6 +47,10 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.ico$/,
+                loader: 'file-loader?name=[name].[ext]'  // <-- retain original file name
             }
         ]
     },
@@ -54,7 +58,9 @@ module.exports = {
         new ExtractTextPlugin(cssOutput),
         new webpack.HotModuleReplacementPlugin(),
         new CopyWebpackPlugin([
-            { from: 'src/images', to: 'static/images' }
+            { from: 'src/images', to: 'static/images' },
+            { from: 'src/vendor', to: 'vendor' },
+            { from: 'src/js', to: 'js' }
         ]),
         new HtmlWebpackPlugin({
             filename: 'index.html',
@@ -80,6 +86,16 @@ module.exports = {
             filename: 'cart.html',
             inject: true,
             template: path.resolve(__dirname, "../src/cart.html")
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'partials/header.html',
+            inject: true,
+            template: path.resolve(__dirname, "../src/partials/header.html")
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'partials/footer.html',
+            inject: true,
+            template: path.resolve(__dirname, "../src/partials/footer.html")
         })
     ]
 };

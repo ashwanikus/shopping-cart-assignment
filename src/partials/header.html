@@ -1,13 +1,15 @@
 <div class="header__row">
+    <!-- site logo -->
     <a href="#" class="header__logo">
         <img src="./static/images/logo.png" alt="Sabka Bazaar" srcset="">
     </a>
+    <!-- end site logo -->
+
+    <!-- main navigation -->
     <nav class="header__nav">
         <input type="checkbox" id="hamberger" />
-        <label class="nav_btn" for="hamberger">
-            <div class="nav_btn__container center">
-                <span class="nav_btn__hamburger"></span>
-            </div>
+        <label class="header__navbtn" for="hamberger">
+            <span class="header__navbtnhamburger"></span>
         </label>
         <div class="header__navmenu">
             <ul class="header__navmenu--primary">
@@ -20,8 +22,11 @@
             </ul>
         </div>
     </nav>
+    <!-- end main navigation -->
+
+    <!-- cart icon -->
     <span class="header__carticon">
-        <a href="cart.html" class="header__carticon--anchor">
+        <a href="cart.html" class="header__carticon--anchor" role="button">
             <i class="cart_icon">
                 <svg version="1.1" id="Layer_1" focusable="false" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24"
@@ -34,4 +39,5 @@
             <span class="main-header__cart-items"><span id="cart_count1">0</span> items</span>
         </a>
     </span>
+    <!-- end cart icon -->
 </div>

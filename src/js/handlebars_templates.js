@@ -1,16 +1,16 @@
 const hbs = {
     dots: `{{#each banners}}
-    <span class="dot"></span>
+    <span class="slideshow__dots--inactive"></span>
     {{/each}}`,
     category: `{{#each categories}}
                 <section class="category__container">
-                    <div class="category__container--box">
-                        <div class="category_img">
+                    <div class="category__containerbox">
+                        <div class="category__containerboximg">
                             <img src="{{imageUrl}}" alt="{{name}}"/>
                         </div>
-                        <div class="category_desc">
-                            <h3 tabindex="0">{{name}}</h3>
-                            <p>
+                        <div class="category__containerboxdesc">
+                            <h1 tabindex="0">{{name}}</h1>
+                            <p tabindex="0">
                                 {{description}}
                             </p>
                             <a href="products.html" class="btn btn--default">Explore {{key}}</a>
@@ -38,7 +38,7 @@ const hbs = {
                 {{/each}}`,
     productListing: `{{#each products}}
                         <div class="products__boxmainlist--listingitems">
-                            <h3 title="{{name}}" tabindex="0">{{name}}</h3>
+                            <h1 title="{{name}}" tabindex="0">{{name}}</h1>
                             <div class="product_Details">
                                 <span><img src="{{imageURL}}" alt="{{name}}" srcset="" tabindex="0"></span>
                                 <p title="{{description}}" tabindex="0">{{description}}</p>
@@ -57,7 +57,7 @@ const hbs = {
                                 <img src="{{imageURL}}" alt="{{name}}">
                             </div>
                             <div class="cart-items__detail">
-                                <h5>{{name}}</h5>
+                                <h2>{{name}}</h2>
                                 <div>
                                     <button class="btn--default" onclick="cartEngine.changeQuantity('{{id}}', 'dec', '{{@index}}')">&minus;</button>
                                     <input type="text" value="{{count}}" id="item{{@index}}" class="prod_quantity">

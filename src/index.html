@@ -11,16 +11,18 @@
 
 <body>
     <header class="header"></header>
-    <section class="slideshow">
-        <div class="slideshow__box" tabindex="0">
-            <div class="slideshow__container" id="slideshow">
-                <a class="slideshow__prev" id="prev" tabindex="0">PREV</a>
-                <a class="slideshow__next" id="next" tabindex="0">NEXT</a>
+    <main>
+        <section class="slideshow">
+            <div class="slideshow__box" tabindex="0">
+                <div class="slideshow__container" id="slideshow">
+                    <a class="slideshow__prev" tabindex="0" role="button">PREV</a>
+                    <a class="slideshow__next" tabindex="0" role="button">NEXT</a>
+                </div>
+                <div class="slideshow__dots" id="slideshow-row__dot"></div>
             </div>
-            <div class="slideshow__dots" id="slideshow-row__dot"></div>
-        </div>
-    </section>
-    <div id="category_container" class="category"></div>
+        </section>
+        <div id="category_container" class="category"></div>
+    </main>
     <footer class="footer"></footer>
     <script src="vendor/handlebars-v4.1.1.js"></script>
     <script src="js/handlebars_helper.js"></script>

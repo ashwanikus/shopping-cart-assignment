@@ -10,13 +10,13 @@ let homeContent = {
 
         let slider = carousal(
             document.getElementsByClassName('slideshow__container--fade'),
-            document.getElementsByClassName('dot'),
-            document.getElementById('prev'),
-            document.getElementById('next')
+            document.getElementsByClassName('slideshow__dots--inactive'),
+            document.getElementsByClassName('slideshow__prev')[0],
+            document.getElementsByClassName('slideshow__next')[0]
         );
 
         slider.start();
-        
+
         setInterval(function () {
             slider.animate();
         }, timeout_int);

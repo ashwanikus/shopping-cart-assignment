@@ -11,39 +11,41 @@
 
 <body>
     <header class="header"></header>
-    <section>
-        <div class="login">
-            <div class="login__text" tabindex="0">
-                <h1>Signup</h1>
-                <p>We do not share your personal details to anyone.</p>
+    <main>
+        <section>
+            <div class="login">
+                <div class="login__text" tabindex="0">
+                    <h1>Signup</h1>
+                    <p>We do not share your personal details to anyone.</p>
+                </div>
+                <div class="login__form">
+                    <form autocomplete="off" method="POST">
+                        <div class="firstname">
+                            <input id="firstname" name="firstname" type="text" required>
+                            <label for="firstname">First Name</label>
+                        </div>
+                        <div class="lastname">
+                            <input id="lastname" name="lastname" type="text" required>
+                            <label for="lastname">Last Name</label>
+                        </div>
+                        <div class="email">
+                            <input id="usermail" name="usermail" type="email" required>
+                            <label for="usermail">Email</label>
+                        </div>
+                        <div class="password">
+                            <input id="userpwd" name="userpwd" type="password" required>
+                            <label for="userpwd">Password</label>
+                        </div>
+                        <div class="confirm_password">
+                            <input id="confirmpwd" name="confirmpwd" type="password" required>
+                            <label for="confirmpwd">Confirm Password</label>
+                        </div>
+                        <button type="submit" class="btn btn--default">Register</button>
+                    </form>
+                </div>
             </div>
-            <div class="login__form">
-                <form autocomplete="off" method="POST">
-                    <div class="firstname">
-                        <input id="firstname" name="firstname" type="text" required>
-                        <label for="firstname">First Name</label>
-                    </div>
-                    <div class="lastname">
-                        <input id="lastname" name="lastname" type="text" required>
-                        <label for="lastname">Last Name</label>
-                    </div>
-                    <div class="email">
-                        <input id="usermail" name="usermail" type="email" required>
-                        <label for="usermail">Email</label>
-                    </div>
-                    <div class="password">
-                        <input id="userpwd" name="userpwd" type="password" required>
-                        <label for="userpwd">Password</label>
-                    </div>
-                    <div class="confirm_password">
-                        <input id="confirmpwd" name="confirmpwd" type="password" required>
-                        <label for="confirmpwd">Confirm Password</label>
-                    </div>
-                    <button type="submit" class="btn btn--default">Register</button>
-                </form>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
     <footer class="footer"></footer>
     <script src="js/api_request.js"></script>
     <script src="js/common.js"></script>

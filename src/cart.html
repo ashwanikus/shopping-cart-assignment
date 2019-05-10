@@ -11,36 +11,37 @@
 
 <body>
     <header class="header"></header>
-    <section>
-        <div class="container">
-            <div class="cart">
-                <div class="cart__box">
-                    <div>
-                        <h3 tabindex="0">My Cart<span>(<span id="item_span">1</span> item)</span></h3>
-                        <div class="cart__items">
-                            <ul id="displaying_cart_items"></ul>
-                        </div>
-                        <div class="cart__badge">
-                            <div>
-                                <img src="/static/images/lowest-price.png" alt="Loweset price image" tabindex="0">
+    <main>
+        <section>
+            <div class="container">
+                <div class="cart">
+                    <div class="cart__box">
+                        <div>
+                            <h1 tabindex="0">My Cart<span>(<span id="item_span">1</span> item)</span></h1>
+                            <div class="cart__items">
+                                <ul id="displaying_cart_items"></ul>
                             </div>
-                            <div>
-                                <p tabindex="0">You won't find cheaper anywhere</p>
+                            <div class="cart__badge">
+                                <div>
+                                    <img src="/static/images/lowest-price.png" alt="Loweset price image" tabindex="0">
+                                </div>
+                                <div>
+                                    <p tabindex="0">You won't find cheaper anywhere</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="checkout">
-                        <p tabindex="0">Promo code can be applied on payment page</p>
-                        <button class="btn--default full_width">Proceed to checkout 
-                            <span>Rs. <i id="checkoutAmount"></i></span>
-                        </button>
-                    </div>
+                        <div class="checkout">
+                            <p tabindex="0">Promo code can be applied on payment page</p>
+                            <button class="btn--default full_width">Proceed to checkout
+                                <span>Rs. <i id="checkoutAmount"></i></span>
+                            </button>
+                        </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
+        </section>
+    </main>
     <footer class="footer"></footer>
     <script src="vendor/handlebars-v4.1.1.js"></script>
     <script src="js/handlebars_helper.js"></script>
