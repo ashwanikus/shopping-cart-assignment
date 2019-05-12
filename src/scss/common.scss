@@ -1,10 +1,11 @@
 @import "variable";
+@import "color";
 @import "mixin";
 
 // common css
 .btn--default {
   color: $secondary_color;
-  font-size: 14px;
+  font-size: $mobile-button;
   text-decoration: none;
   background-color: $theme_color;
   padding: 13px 10px;
@@ -30,7 +31,7 @@
 // common css
 
 h3 {
-  font-size: 20px;
+  font-size: $mobile-ternary-heading;
 }
 
 // FOOTER
@@ -40,7 +41,6 @@ footer {
   background-color: $border_color_primary;
   color: black;
   font-weight: 600;
-  font-size: 77%;
   text-align: left;
   & > div {
     @include row;
@@ -79,7 +79,7 @@ footer {
         padding: 0;
         display: block;
         a {
-          font-size: 20px;
+          font-size: $mobile-anchor;
           font-weight: 600;
           padding: 7px 0;
           display: block;
@@ -178,7 +178,7 @@ footer {
           text-align: center;
           border: 1px solid;
           line-height: 16px;
-          font-size: 12px;
+          font-size: $mobile-span;
         }
       }
       span {
@@ -224,17 +224,17 @@ footer {
 
 @media only screen and (min-width: 480px) {
   h3 {
-    font-size: 22px;
+    font-size: $desktop-ternary-heading;
   }
   .btn--default {
-    font-size: 16px;
+    font-size: $desktop-button;
     padding: 13px 17px;
   }
 }
 
 @media only screen and (min-width: 768px) {
   h3 {
-    font-size: 27px;
+    font-size: $desktop-secondary-heading;
   }
 
   .header {
@@ -259,7 +259,7 @@ footer {
           color: $border_color_secondary;
           font-weight: 600;
           text-decoration: none;
-          font-size: 16px;
+          font-size: $desktop-anchor;
           transition: 0.5s;
         }
       }
@@ -277,7 +277,7 @@ footer {
       li {
         padding-right: 0px;
         a {
-          font-size: 14px;
+          font-size: $desktop-anchor;
           font-weight: 300;
         }
       }
@@ -294,7 +294,7 @@ footer {
     &__carticon {
       padding-right: 0px;
       position: absolute;
-      right: 1rem;
+      right: 30px;
       bottom: 0;
       z-index: 5;
     }
@@ -323,13 +323,13 @@ footer {
           height: auto;
           width: auto;
           border: none;
-          font-size: 16px;
+          font-size: $desktop-span;
           font-weight: 300;
         }
       }
       span {
         display: inline-block;
-        font-size: 16px;
+        font-size: $desktop-span;
       }
     }
   }

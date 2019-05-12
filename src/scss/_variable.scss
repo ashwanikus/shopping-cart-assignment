@@ -1,32 +1,19 @@
-// black
-$primary_color: rgba(0, 0, 0, 1);
-$primary_color_light: rgba(34, 34, 34, 1);
-//$trans_black: rgba(0, 0, 0, 0.42);
-$primary_color_transparent: rgba(0, 0, 0, 0.42);
+$body-font: 10px; //1rem
 
-// white
-$secondary_color: rgba(255, 255, 255, 1);
-$secondary_color_mix_white: rgba(242, 242, 242, 1);
+$mobile-main-heading: 1.6rem;
+$mobile-secondary-heading: 1.2rem;
+$mobile-ternary-heading: 1.0rem;
+$mobile-body-content: 1.4rem;
+$mobile-paragraph: 1.2rem;
+$mobile-anchor: 1.2rem;
+$mobile-span: 1rem;
+$mobile-button: 1.4rem;
 
-//grey
-$border_color: rgba(113, 113, 113, 1);
-$border_color_primary: rgba(238, 238, 238, 1);
-$border_color_primary2: rgba(146, 143, 143, 0.3);
-$border_color_secondary: rgba(112, 103, 106, 1);
-$border_color_transparent: rgba(130, 130, 117, 0.4);
-
-//pink
-$theme_color: rgba(191, 41, 87, 1);
-
-//blue
-$form_border: rgba(80, 218, 226, 1); //$form_border
-
-
-$body-font : 10px;
-$main-heading : 1.6rem;
-$body-content : 1.4rem;
-
-
-@media only screen and (min-width: 480px){
-    $body-font : 20px;
-}
+$desktop-main-heading: 3rem;
+$desktop-secondary-heading: 2.0rem;
+$desktop-ternary-heading: 1.8rem;
+$desktop-body-content: 2.4rem;
+$desktop-paragraph: 1.8rem;
+$desktop-anchor: 1.6rem;
+$desktop-span: 1.6rem;
+$desktop-button: 1.6rem;

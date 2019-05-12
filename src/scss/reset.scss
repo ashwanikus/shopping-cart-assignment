@@ -1,4 +1,6 @@
 @import "variable";
+@import "color";
+@import "mixin";
 
 * {
   margin: 0;
@@ -13,7 +15,7 @@ html {
   color: black;
   font-family: "Dosis", "Arial", sans-serif;
   font-weight: 300;
-  font-size: 20px;
+  font-size: $body-font;
   text-rendering: optimizeLegibility;
 }
 img {
@@ -33,13 +35,8 @@ button {
   border: none;
 }
 
-:focus {
-  outline: -webkit-focus-ring-color auto 0px;
-}
-
 a {
   text-decoration: none;
-  display: inline-block;
 }
 
 section {
@@ -53,7 +50,7 @@ ol {
   padding: 0;
 }
 p {
-  font-size: 16px;
+  font-size: $mobile-paragraph;
 }
 
 ol,
@@ -63,11 +60,13 @@ li {
   list-style: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 0;
+a {
+  display: inline-block;
+}
+li {
+  display: inline-block;
+}
+
+h3 {
+  font-size: $mobile-secondary-heading;
 }

@@ -1,4 +1,5 @@
 @import "variable";
+@import "color";
 @import "mixin";
 
 /* Slideshow container */
@@ -51,7 +52,7 @@
     margin-top: -22px;
     color: $secondary_color;
     font-weight: bold;
-    font-size: 12px;
+    font-size: $mobile-anchor;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
@@ -72,7 +73,7 @@
     margin-top: -22px;
     color: $secondary_color;
     font-weight: bold;
-    font-size: 12px;
+    font-size: $mobile-anchor;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
@@ -113,15 +114,15 @@
 }
 
 /* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
+@media only screen and (min-width: 480px) {
   .slideshow {
     &__prev,
     &__next {
-      font-size: 11px;
+      font-size: $desktop-anchor;
     }
   }
 
   .text {
-    font-size: 11px;
+    font-size: $desktop-anchor;
   }
 }

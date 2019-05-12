@@ -5,11 +5,11 @@ require('./favicon.ico');
 require("./scss/reset.scss");
 require("./scss/common.scss");
 require("./scss/home.scss");
-require("./scss/query.scss");
 require("./scss/carousel.scss");
 require("./scss/login.scss");
 require("./scss/products.scss");
 require("./scss/cart.scss");
+require("./scss/query.scss");
 
 (function (header, footer) {
   var h = sessionStorage.getItem("header");
