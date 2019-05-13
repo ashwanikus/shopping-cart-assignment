@@ -41,7 +41,6 @@
   & > p {
     width: 50%;
     background-color: #f0f0f0;
-    font-weight: 600;
     max-width: 100%;
     font-size: $mobile-anchor;
     padding: 5px;
@@ -185,15 +184,7 @@
         }
 
         p {
-          background-color: #f0f0f0;
-          font-weight: 600;
-          max-width: 100%;
           font-size: $desktop-span;
-          padding: 5px;
-          height: 90px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          display: inline-block;
         }
       }
     }

@@ -14,7 +14,7 @@ require("./scss/query.scss");
 (function (header, footer) {
   var h = sessionStorage.getItem("header");
   var f = sessionStorage.getItem("footer");
-  
+
   if (h == null || f == null) {
     let ajaxReq = new XMLHttpRequest();
     ajaxReq.open("GET", 'partials_content', true);
@@ -26,11 +26,11 @@ require("./scss/query.scss");
         header.innerHTML = data.header;
         footer.innerHTML = data.footer;
       } else {
-        console.log("We conected to the server, but it returned an error.");
+        alert("We conected to the server, but it returned an error.");
       }
     }
     ajaxReq.onerror = function () {
-      console.log("Connection Error");
+      alert("Connection Error");
     }
     ajaxReq.send();
   } else {
