@@ -1,0 +1,31 @@
+@import "variable";
+@import "color";
+@import "mixin";
+
+@media only screen and (min-width: 480px) {
+  h1 {
+    font-size: $desktop-main-heading;
+  }
+
+  h2 {
+    font-size: $desktop-secondary-heading;
+  }
+
+  h3 {
+    font-size: $desktop-ternary-heading;
+  }
+
+  p {
+    font-size: $desktop-paragraph;
+  }
+
+  span {
+    font-size: $desktop-span;
+  }
+
+  footer {
+    left: 0;
+    bottom: 0;
+    padding: 10px 0;
+  }
+}

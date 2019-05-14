@@ -1,0 +1,72 @@
+@import "variable";
+@import "color";
+@import "mixin";
+
+* {
+  margin: 0;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  overflow-x: hidden;
+}
+html {
+  background-color: $secondary_color;
+  color: black;
+  font-family: "Dosis", "Arial", sans-serif;
+  font-weight: 300;
+  font-size: $body-font;
+  text-rendering: optimizeLegibility;
+}
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+a:active,
+a:hover.a:focus,
+button:active,
+button:hover,
+button:focus,
+a,
+button {
+  outline: none;
+  outline-offset: 0;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+section {
+  padding: 30px 0;
+  background: $secondary_color;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+p {
+  font-size: $mobile-paragraph;
+}
+
+ol,
+ul,
+li {
+  display: inline-block;
+  list-style: none;
+}
+
+a {
+  display: inline-block;
+}
+li {
+  display: inline-block;
+}
+
+h3 {
+  font-size: $mobile-secondary-heading;
+}
